@@ -1,0 +1,39 @@
+Sub BatchAudioAutoPlay_Final2()
+    Dim osld As Slide
+    Dim oshp As Shape
+    Dim oeff As Effect
+
+    ' 常量自己定义，避免版本缺失
+    Const msoMedia As Long = 16
+    Const msoAnimEffectMediaPlay As Long = 125
+    Const msoAnimTriggerWithPrevious As Long = 2
+
+    For Each osld In ActivePresentation.Slides
+        For Each oshp In osld.Shapes
+            ' 只处理媒体形状（音频/视频）
+            If oshp.Type = msoMedia Then
+                On Error Resume Next
+
+                ' ========== 关键：把“开始”设为自动（界面里的“自动”） ==========
+                oshp.AnimationSettings.PlaySettings.PlayOnEntry = True
+
+                ' 找已有动画
+                Set oeff = osld.TimeLine.MainSequence.FindFirstAnimationFor(oshp)
+
+                If Not oeff Is Nothing Then
+                    ' 改为“与上一动画同时”
+                    oeff.Timing.TriggerType = msoAnimTriggerWithPrevious
+                Else
+                    ' 没有就新建播放动画
+                    Set oeff = osld.TimeLine.MainSequence.AddEffect( _
+                        oshp, msoAnimEffectMediaPlay, , msoAnimTriggerWithPrevious)
+                End If
+
+                ' 不要隐藏喇叭，删掉原来那句 HideWhileNotPlaying
+                On Error GoTo 0
+            End If
+        Next oshp
+    Next osld
+
+    MsgBox "完成：所有音频设为自动播放，喇叭保留", vbInformation
+End Sub

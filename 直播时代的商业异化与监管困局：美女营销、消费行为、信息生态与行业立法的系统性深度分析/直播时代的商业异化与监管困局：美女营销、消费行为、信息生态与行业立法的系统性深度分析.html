@@ -1,0 +1,464 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>直播时代的商业异化与监管困局</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #FFFFFF;
+        }
+        .card {
+            background-color: white;
+            border: 1px solid #E5E7EB;
+            border-radius: 1.25rem; /* 20px */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            overflow: hidden;
+            position: relative;
+        }
+        .card:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+        .highlight-gradient-blue { background: linear-gradient(135deg, rgba(59, 130, 246, 0), rgba(59, 130, 246, 0.05)); }
+        .highlight-gradient-purple { background: linear-gradient(135deg, rgba(139, 92, 246, 0), rgba(139, 92, 246, 0.05)); }
+        .highlight-gradient-rose { background: linear-gradient(135deg, rgba(244, 63, 94, 0), rgba(244, 63, 94, 0.05)); }
+        .highlight-gradient-amber { background: linear-gradient(135deg, rgba(245, 158, 11, 0), rgba(245, 158, 11, 0.05)); }
+        .highlight-gradient-teal { background: linear-gradient(135deg, rgba(20, 184, 166, 0), rgba(20, 184, 166, 0.05)); }
+        .highlight-gradient-sky { background: linear-gradient(135deg, rgba(14, 165, 233, 0), rgba(14, 165, 233, 0.05)); }
+    </style>
+</head>
+<body class="bg-white">
+    <div class="max-w-7xl mx-auto p-4 md:p-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
+            <!-- Title Card -->
+            <div class="card md:col-span-4 p-8 md:p-12 flex flex-col justify-center relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-blue"></div>
+                <div class="relative">
+                    <div class="text-sm uppercase tracking-wider text-blue-500 font-semibold mb-3">
+                        Deep Dive Analysis
+                    </div>
+                    <h1 class="text-3xl md:text-5xl font-bold text-gray-900 leading-tight">
+                        直播时代的商业异化与监管困局
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-600 mt-4 max-w-4xl">
+                        美女营销、消费行为、信息生态与行业立法的系统性深度分析
+                    </p>
+                </div>
+            </div>
+
+            <!-- Core Viewpoints -->
+            <div class="card md:col-span-4 p-8 flex flex-col relative">
+                 <div class="absolute top-0 left-0 w-full h-full highlight-gradient-purple"></div>
+                 <div class="relative flex flex-col md:flex-row gap-8">
+                    <div class="md:w-1/4">
+                        <div class="flex items-center gap-3 mb-4">
+                            <i class="fa-solid fa-lightbulb text-2xl text-purple-500"></i>
+                            <h2 class="text-2xl font-bold text-gray-900">核心观点</h2>
+                        </div>
+                        <p class="text-gray-600">本报告剖析了直播电商行业四大高度关联的突出命题，揭示了从“流量变现”升级为“收割变现”的闭环产业链。</p>
+                    </div>
+                    <div class="md:w-3/4 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                            <div class="flex items-center gap-2 text-purple-600 mb-2">
+                                <i class="fa-solid fa-circle-nodes"></i>
+                                <h3 class="font-bold">营销异化</h3>
+                            </div>
+                            <p class="text-sm text-gray-600">美女营销替代产品竞争力，成为行业流量竞争白热化下的“捷径选择”。</p>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                            <div class="flex items-center gap-2 text-purple-600 mb-2">
+                                <i class="fa-solid fa-users-slash"></i>
+                                <h3 class="font-bold">消费异化</h3>
+                            </div>
+                            <p class="text-sm text-gray-600">消费者偏离真实需求，催生了规模化的异化消费行为。</p>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                            <div class="flex items-center gap-2 text-purple-600 mb-2">
+                                <i class="fa-solid fa-filter-circle-xmark"></i>
+                                <h3 class="font-bold">生态失衡</h3>
+                            </div>
+                            <p class="text-sm text-gray-600">劣币驱逐良币，优质内容与合规商家生存空间被挤压。</p>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                            <div class="flex items-center gap-2 text-purple-600 mb-2">
+                                <i class="fa-solid fa-scale-unbalanced-flip"></i>
+                                <h3 class="font-bold">监管滞后</h3>
+                            </div>
+                            <p class="text-sm text-gray-600">立法滞后与监管效能不足，是乱象滋生的底层制度环境。</p>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+
+            <!-- Industry Scale Chart -->
+            <div class="card md:col-span-2 p-6 flex flex-col relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-teal"></div>
+                <div class="relative flex flex-col h-full">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4">直播行业市场规模</h3>
+                    <div class="flex-grow h-64">
+                        <canvas id="industryScaleChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User Growth Chart -->
+            <div class="card md:col-span-2 p-6 flex flex-col relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-sky"></div>
+                <div class="relative flex flex-col h-full">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4">网络直播用户规模及增速</h3>
+                    <div class="flex-grow h-64">
+                        <canvas id="userGrowthChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Metrics -->
+            <div class="card md:col-span-1 p-6 flex flex-col justify-center items-center text-center relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-amber"></div>
+                <div class="relative">
+                    <div class="text-4xl md:text-5xl font-extrabold text-amber-500">7.42亿</div>
+                    <div class="text-gray-600 mt-2">2025年网络直播用户规模</div>
+                    <div class="text-sm text-gray-500 mt-1">占网民整体近七成</div>
+                </div>
+            </div>
+            <div class="card md:col-span-1 p-6 flex flex-col justify-center items-center text-center relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-amber"></div>
+                <div class="relative">
+                    <div class="text-4xl md:text-5xl font-extrabold text-amber-500">187元</div>
+                    <div class="text-gray-600 mt-2">单用户获取成本(CAC)</div>
+                    <div class="text-sm text-gray-500 mt-1">较2022年上涨超90%</div>
+                </div>
+            </div>
+            <div class="card md:col-span-1 p-6 flex flex-col justify-center items-center text-center relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-rose"></div>
+                <div class="relative">
+                    <div class="text-4xl md:text-5xl font-extrabold text-rose-500">67%</div>
+                    <div class="text-gray-600 mt-2">“低价促销+限时秒杀”内容占比</div>
+                    <div class="text-sm text-gray-500 mt-1">依赖情绪刺激</div>
+                </div>
+            </div>
+            <div class="card md:col-span-1 p-6 flex flex-col justify-center items-center text-center relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-rose"></div>
+                <div class="relative">
+                    <div class="text-4xl md:text-5xl font-extrabold text-rose-500">8.3%</div>
+                    <div class="text-gray-600 mt-2">知识型内容占比</div>
+                    <div class="text-sm text-gray-500 mt-1">支撑长期用户留存</div>
+                </div>
+            </div>
+
+            <!-- Marketing Alienation -->
+            <div class="card md:col-span-4 p-8 flex flex-col md:flex-row gap-8 relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-blue"></div>
+                <div class="relative md:w-1/3">
+                    <div class="text-sm uppercase tracking-wider text-blue-500 font-semibold mb-2">
+                        Chapter 02
+                    </div>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">营销的异化</h2>
+                    <p class="text-gray-600">
+                        以“美女营销”替代产品竞争力，是整个产业链乱象的逻辑起点。商家和平台放弃了以产品价值换取长期用户留存的合规路径，转而依赖颜值经济这一“低成本、高回报”的流量捷径。
+                    </p>
+                </div>
+                <div class="relative md:w-2/3 grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-blue-50 p-6 rounded-xl border border-blue-100">
+                        <div class="text-blue-500 text-3xl mb-4"><i class="fa-solid fa-clone"></i></div>
+                        <h3 class="font-bold text-gray-900 mb-2">内容场景模板化</h3>
+                        <p class="text-sm text-gray-600">从场景布置、镜头角度到主播话术、互动玩法，不同直播间的内容高度趋同，形成工业化标准脚本。</p>
+                    </div>
+                    <div class="bg-blue-50 p-6 rounded-xl border border-blue-100">
+                        <div class="text-blue-500 text-3xl mb-4"><i class="fa-solid fa-share-nodes"></i></div>
+                        <h3 class="font-bold text-gray-900 mb-2">流量诱导间接化</h3>
+                        <p class="text-sm text-gray-600">通过“颜值吸引→话术留存→心智洗脑→跳转带货”的闭环流程，将用户注意力从感官刺激间接引导至产品。</p>
+                    </div>
+                    <div class="bg-blue-50 p-6 rounded-xl border border-blue-100">
+                        <div class="text-blue-500 text-3xl mb-4"><i class="fa-solid fa-arrows-left-right-to-line"></i></div>
+                        <h3 class="font-bold text-gray-900 mb-2">竞争路径单一化</h3>
+                        <p class="text-sm text-gray-600">大量商家将美女营销作为核心竞争路径，形成“劣币驱逐良币”的行业竞争惯性。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Consumption Alienation -->
+            <div class="card md:col-span-4 p-8 flex flex-col md:flex-row gap-8 relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-purple"></div>
+                <div class="relative md:w-1/3">
+                    <div class="text-sm uppercase tracking-wider text-purple-500 font-semibold mb-2">
+                        Chapter 03
+                    </div>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">行为的异化</h2>
+                    <p class="text-gray-600">
+                        营销端的异化，必然传导至消费端。商家通过精心设计的感官刺激、情绪诱导和身份认同，将不合理的消费理念灌输给消费者，最终导致其消费行为的异化。
+                    </p>
+                </div>
+                <div class="relative md:w-2/3 grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-purple-50 p-6 rounded-xl border border-purple-100">
+                        <div class="text-purple-500 text-3xl mb-4"><i class="fa-solid fa-brain"></i></div>
+                        <h3 class="font-bold text-gray-900 mb-2">决策逻辑异化</h3>
+                        <p class="text-sm text-gray-600">从“功能导向”到“符号导向”，将“主播的颜值或人设好感”作为购买的核心判断依据。</p>
+                    </div>
+                    <div class="bg-purple-50 p-6 rounded-xl border border-purple-100">
+                        <div class="text-purple-500 text-3xl mb-4"><i class="fa-solid fa-bolt"></i></div>
+                        <h3 class="font-bold text-gray-900 mb-2">消费行为异化</h3>
+                        <p class="text-sm text-gray-600">从“理性按需消费”到“冲动非理性消费”，在高压力营销场景下，理性决策能力被麻痹。</p>
+                    </div>
+                    <div class="bg-purple-50 p-6 rounded-xl border border-purple-100">
+                        <div class="text-purple-500 text-3xl mb-4"><i class="fa-solid fa-hand-holding-heart"></i></div>
+                        <h3 class="font-bold text-gray-900 mb-2">价值认同异化</h3>
+                        <p class="text-sm text-gray-600">从“产品价值认同”到“情感劳动的流量回报”，将消费行为异化为对主播的“情感支持”。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ecology Alienation -->
+            <div class="card md:col-span-4 p-8 flex flex-col md:flex-row gap-8 relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-rose"></div>
+                <div class="relative md:w-1/3">
+                    <div class="text-sm uppercase tracking-wider text-rose-500 font-semibold mb-2">
+                        Chapter 04
+                    </div>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">生态的异化</h2>
+                    <p class="text-gray-600">
+                        美女营销能够规模化生存的底层逻辑，是平台流量分发机制的价值导向扭曲。在流量算法权重的引导下，低俗内容将优质内容从流量场景中排挤出去，造成整个网络信息生态的系统性失衡。
+                    </p>
+                </div>
+                <div class="relative md:w-2/3">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">“劣币驱逐良币”的三层表征</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4 p-4 bg-rose-50 rounded-lg border border-rose-100">
+                            <div class="text-rose-500 text-xl mt-1"><i class="fa-solid fa-file-lines"></i></div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">内容生态失衡</h4>
+                                <p class="text-sm text-gray-600">低俗内容挤压优质内容的生存空间，内容创作导向被显著扭曲。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 bg-rose-50 rounded-lg border border-rose-100">
+                            <div class="text-rose-500 text-xl mt-1"><i class="fa-solid fa-store-slash"></i></div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">商家生态失衡</h4>
+                                <p class="text-sm text-gray-600">低质、高仿商家挤压合规商家的生存空间，市场竞争逻辑被扭曲。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 bg-rose-50 rounded-lg border border-rose-100">
+                            <div class="text-rose-500 text-xl mt-1"><i class="fa-solid fa-arrow-trend-down"></i></div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">流量生态失衡</h4>
+                                <p class="text-sm text-gray-600">虚假流量挤压真实流量的生存空间，陷入“造假-流量倾斜-更严重造假”的恶性循环。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Visualization - Conversion Rate -->
+            <div class="card md:col-span-2 p-6 flex flex-col relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-teal"></div>
+                <div class="relative flex flex-col h-full">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4">直播间带货转化率对比</h3>
+                    <div class="flex-grow h-64">
+                        <canvas id="conversionRateChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Visualization - Content Distribution -->
+            <div class="card md:col-span-2 p-6 flex flex-col relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-sky"></div>
+                <div class="relative flex flex-col h-full">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4">直播平台内容分布</h3>
+                    <div class="flex-grow h-64">
+                        <canvas id="contentDistributionChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Regulatory Challenges -->
+            <div class="card md:col-span-4 p-8 flex flex-col md:flex-row gap-8 relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-amber"></div>
+                <div class="relative md:w-1/3">
+                    <div class="text-sm uppercase tracking-wider text-amber-500 font-semibold mb-2">
+                        Regulatory Challenges
+                    </div>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">监管困局</h2>
+                    <p class="text-gray-600">
+                        上述全链条乱象的深层次根源，是直播电商行业的立法滞后，以及由此引发的监管效能不足、主体责任划分模糊、技术规制与行业发展适配性不足等系统性治理短板。
+                    </p>
+                </div>
+                <div class="relative md:w-2/3">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900 mb-4">监管面临的现实瓶颈</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-border-all text-amber-500 mt-1"></i>
+                                    <span class="text-gray-700"><strong>内容边界模糊性：</strong>擦边、低俗内容难以有明确的量化判定标准。</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-clock-rotate-left text-amber-500 mt-1"></i>
+                                    <span class="text-gray-700"><strong>直播形态特殊性：</strong>实时性、短暂性特征增加了取证和监管难度。</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-shield-halved text-amber-500 mt-1"></i>
+                                    <span class="text-gray-700"><strong>平台执行积极性不足：</strong>出于自身流量和商业利益考虑，管控动力不足。</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900 mb-4">近年来重点监管举措</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-file-signature text-amber-500 mt-1"></i>
+                                    <span class="text-gray-700"><strong>《关于促进直播行业规范健康发展的指导意见》</strong>将软色情、低俗擦边纳入重点监管。</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-gavel text-amber-500 mt-1"></i>
+                                    <span class="text-gray-700"><strong>《直播电商监督管理办法》</strong>细化引流行为认定标准，明确平台主体责任。</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fa-solid fa-broom text-amber-500 mt-1"></i>
+                                    <span class="text-gray-700"><strong>“清朗”系列专项行动</strong>将整治低俗擦边、软色情营销作为重点任务。</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="card md:col-span-4 p-8 flex flex-col items-center text-center relative">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-blue"></div>
+                <div class="relative max-w-3xl">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">解决路径：构建多元协同治理框架</h2>
+                    <p class="text-gray-600 mb-8">
+                        解决这一困局的核心逻辑并非单一维度的监管强化，而是需要构建“内容生态矫正-消费观念重塑-市场机制优化-法律监管压实”的多元协同治理框架，通过全链条规制切断乱象传导闭环，推动直播电商行业从流量驱动向价值驱动转型。
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">平台端优化算法</span>
+                        <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">商家端回归产品本位</span>
+                        <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">用户端重塑理性消费观</span>
+                        <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">监管端完善法律体系</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    // Industry Scale Chart
+    const industryCtx = document.getElementById('industryScaleChart').getContext('2d');
+    new Chart(industryCtx, {
+        type: 'bar',
+        data: {
+            labels: ['2022', '2023', '2024'],
+            datasets: [{
+                label: '市场营收规模 (亿元)',
+                data: [1844.4, 1999.9, 2126.4],
+                backgroundColor: 'rgba(20, 184, 166, 0.6)',
+                borderColor: 'rgba(20, 184, 166, 1)',
+                borderWidth: 1,
+                borderRadius: 4,
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } },
+                x: { grid: { display: false } }
+            }
+        }
+    });
+
+    // User Growth Chart
+    const userCtx = document.getElementById('userGrowthChart').getContext('2d');
+    new Chart(userCtx, {
+        type: 'line',
+        data: {
+            labels: ['2022年底', '2023年底', '2024年底', '2025年6月'],
+            datasets: [{
+                label: '用户规模 (亿)',
+                data: [6.5, 6.8, 7.3, 7.42],
+                borderColor: 'rgba(14, 165, 233, 1)',
+                backgroundColor: 'rgba(14, 165, 233, 0.1)',
+                fill: true,
+                tension: 0.4,
+                pointRadius: 4,
+                pointBackgroundColor: 'rgba(14, 165, 233, 1)'
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                y: { beginAtZero: false, grid: { color: 'rgba(0,0,0,0.05)' } },
+                x: { grid: { display: false } }
+            }
+        }
+    });
+
+    // Conversion Rate Chart
+    const conversionCtx = document.getElementById('conversionRateChart').getContext('2d');
+    new Chart(conversionCtx, {
+        type: 'bar',
+        data: {
+            labels: ['颜值类直播间', '合规内容直播间'],
+            datasets: [{
+                label: '带货转化率 (%)',
+                data: [0.31, 2.0],
+                backgroundColor: ['rgba(244, 63, 94, 0.6)', 'rgba(20, 184, 166, 0.6)'],
+                borderColor: ['rgba(244, 63, 94, 1)', 'rgba(20, 184, 166, 1)'],
+                borderWidth: 1,
+                borderRadius: 4,
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { callback: value => value + '%' } },
+                x: { grid: { display: false } }
+            }
+        }
+    });
+
+    // Content Distribution Chart
+    const contentCtx = document.getElementById('contentDistributionChart').getContext('2d');
+    new Chart(contentCtx, {
+        type: 'doughnut',
+        data: {
+            labels: ['低价促销+限时秒杀', '才艺展示', '知识分享', '产品讲解', '其他'],
+            datasets: [{
+                data: [67, 15, 8.3, 7.2, 2.5],
+                backgroundColor: [
+                    'rgba(14, 165, 233, 0.7)',
+                    'rgba(139, 92, 246, 0.7)',
+                    'rgba(20, 184, 166, 0.7)',
+                    'rgba(245, 158, 11, 0.7)',
+                    'rgba(107, 114, 128, 0.7)'
+                ],
+                borderColor: '#fff',
+                borderWidth: 2,
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'right',
+                    labels: {
+                        boxWidth: 12,
+                        padding: 15,
+                        font: { size: 11 }
+                    }
+                }
+            },
+            cutout: '60%'
+        }
+    });
+</script>
+</html>

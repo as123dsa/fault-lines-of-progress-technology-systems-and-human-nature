@@ -1,0 +1,404 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人性的整体性-发展性数学模型</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #FFFFFF;
+        }
+        .card {
+            background-color: white;
+            border: 1px solid #E5E7EB;
+            border-radius: 1.25rem; /* 20px */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            overflow: hidden;
+            position: relative;
+        }
+        .card:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .highlight-gradient-blue {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0), rgba(59, 130, 246, 0.05));
+        }
+        .highlight-gradient-purple {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0), rgba(139, 92, 246, 0.05));
+        }
+        .highlight-gradient-green {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0), rgba(34, 197, 94, 0.05));
+        }
+        .highlight-gradient-orange {
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0), rgba(249, 115, 22, 0.05));
+        }
+        .highlight-gradient-red {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0), rgba(239, 68, 68, 0.05));
+        }
+        .highlight-gradient-teal {
+            background: linear-gradient(135deg, rgba(20, 184, 166, 0), rgba(20, 184, 166, 0.05));
+        }
+        .dimension-line {
+            height: 2px;
+            background-color: currentColor;
+            opacity: 0.5;
+        }
+        .state-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: currentColor;
+            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+        }
+        .equation-container {
+            font-family: 'KaTeX_Main', 'Times New Roman', serif;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #1f2937;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <div class="max-w-7xl mx-auto p-4 md:p-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
+            <!-- Title Card -->
+            <div class="card md:col-span-4 p-8 flex flex-col justify-center items-center text-center">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-blue"></div>
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-800 mb-4">人性的整体性-发展性数学模型</h1>
+                <p class="text-xl md:text-2xl text-gray-600 mb-6">理论架构、动态方程与初始化推演</p>
+                <div class="flex items-center gap-4 text-gray-500">
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-brain text-2xl text-blue-500"></i><span>心理学</span></div>
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-users text-2xl text-purple-500"></i><span>社会学</span></div>
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-flask-vial text-2xl text-green-500"></i><span>神经科学</span></div>
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-book-open-reader text-2xl text-orange-500"></i><span>哲学</span></div>
+                </div>
+            </div>
+
+            <!-- Abstract Card -->
+            <div class="card md:col-span-2 p-8 flex flex-col">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-purple"></div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-lightbulb text-purple-500"></i>核心观点</h2>
+                <p class="text-gray-600 leading-relaxed">本文提出了一种针对人性的<span class="font-bold text-purple-600">整体性-发展性数学模型</span>，称为“人性耦合张量模型”（CHNTM）。该模型将人性中最为核心的五大维度——<span class="font-semibold">情感、理性、道德、社会性、自我意识</span>——进行统一的形式化表征，同时通过引入非线性耦合与记忆衰减机制，刻画人性从婴儿期到成熟期的连续发展与动态变化。</p>
+            </div>
+
+            <!-- 5 Dimensions Card -->
+            <div class="card md:col-span-2 p-8 flex flex-col">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-green"></div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-cubes text-green-500"></i>五大核心维度</h2>
+                <div class="grid grid-cols-2 gap-4 text-gray-600">
+                    <div class="flex items-start gap-3"><div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">E</div><div><h3 class="font-semibold">情感</h3><p class="text-sm">主观体验、生理唤醒</p></div></div>
+                    <div class="flex items-start gap-3"><div class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold">R</div><div><h3 class="font-semibold">理性</h3><p class="text-sm">逻辑加工、分析决策</p></div></div>
+                    <div class="flex items-start gap-3"><div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-bold">M</div><div><h3 class="font-semibold">道德</h3><p class="text-sm">善恶判断、行为倾向</p></div></div>
+                    <div class="flex items-start gap-3"><div class="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 font-bold">S</div><div><h3 class="font-semibold">社会性</h3><p class="text-sm">关系建立、社会适应</p></div></div>
+                    <div class="flex items-start gap-3 col-span-2"><div class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-red-600 font-bold">A</div><div><h3 class="font-semibold">自我意识</h3><p class="text-sm">自我认知、反思能力</p></div></div>
+                </div>
+            </div>
+
+            <!-- Theory Foundation Card -->
+            <div class="card md:col-span-3 p-8 flex flex-col">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-orange"></div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-layer-group text-orange-500"></i>多学科理论基础</h2>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="bg-white/50 rounded-lg p-4">
+                        <h3 class="font-bold text-gray-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-book-open text-blue-500"></i>哲学层</h3>
+                        <p class="text-sm text-gray-600">过程本体论、批判整体论、儒学"情理合一"思想</p>
+                    </div>
+                    <div class="bg-white/50 rounded-lg p-4">
+                        <h3 class="font-bold text-gray-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-brain text-purple-500"></i>神经科学层</h3>
+                        <p class="text-sm text-gray-600">"三脑合一"假说（爬行动物脑、边缘系统、新皮层）</p>
+                    </div>
+                    <div class="bg-white/50 rounded-lg p-4">
+                        <h3 class="font-bold text-gray-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-user-check text-green-500"></i>心理学层</h3>
+                        <p class="text-sm text-gray-600">发展动态系统理论、道德双重加工理论、社会情感发展五域模型</p>
+                    </div>
+                    <div class="bg-white/50 rounded-lg p-4">
+                        <h3 class="font-bold text-gray-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-users-line text-orange-500"></i>社会学层</h3>
+                        <p class="text-sm text-gray-600">生态系统理论（微观、中观、宏观系统）、社会认同理论</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mathematical Formulation Card -->
+            <div class="card md:col-span-1 p-8 flex flex-col">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-red"></div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-calculator text-red-500"></i>数学形式</h2>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4">模型采用分数阶随机微分方程组作为核心演化方程，捕捉人性发展的长期记忆效应与非线性扰动。</p>
+                <div class="bg-gray-50 rounded-lg p-4 text-center">
+                    <div class="text-red-500 font-bold text-lg">D<sub>t</sub><sup>μ</sup> X(t)</div>
+                    <div class="text-gray-400 my-1">↓</div>
+                    <div class="text-gray-600 text-sm">分数阶导数</div>
+                    <div class="text-gray-600 text-sm">记忆依赖</div>
+                </div>
+            </div>
+
+            <!-- Tensor Network Card -->
+            <div class="card md:col-span-4 p-8 flex flex-col">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-teal"></div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2"><i class="fa-solid fa-project-diagram text-teal-500"></i>人性耦合张量网络拓扑结构</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+                    <div class="flex flex-col items-center">
+                        <h3 class="text-xl font-bold text-gray-700 mb-4">状态空间流形</h3>
+                        <div class="w-64 h-48 relative bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg border border-gray-200 overflow-hidden">
+                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
+                            <div class="absolute top-1/3 left-1/4 w-2 h-2 bg-purple-500 rounded-full"></div>
+                            <div class="absolute top-2/3 left-3/4 w-2 h-2 bg-green-500 rounded-full"></div>
+                            <div class="absolute top-1/4 left-3/5 w-2 h-2 bg-orange-500 rounded-full"></div>
+                            <div class="absolute top-3/4 left-1/5 w-2 h-2 bg-red-500 rounded-full"></div>
+                            <div class="absolute bottom-2 right-2 text-xs text-gray-500">X(t) = [E, R, M, S, A]<sup>T</sup></div>
+                        </div>
+                        <p class="text-sm text-gray-600 mt-2 text-center">五维连续流形上的动态演化点</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <h3 class="text-xl font-bold text-gray-700 mb-4">非线性耦合算子矩阵</h3>
+                        <div class="w-64 h-48 relative bg-gradient-to-br from-green-50 to-teal-50 rounded-lg border border-gray-200 flex items-center justify-center">
+                            <div class="grid grid-cols-5 gap-1 text-xs">
+                                <div class="w-8 h-8 bg-blue-100 rounded flex items-center justify-center text-blue-600 font-bold">K<sub>EE</sub></div>
+                                <div class="w-8 h-8 bg-blue-100 rounded flex items-center justify-center text-blue-600 font-bold">K<sub>ER</sub></div>
+                                <div class="w-8 h-8 bg-blue-100 rounded flex items-center justify-center text-blue-600 font-bold">K<sub>EM</sub></div>
+                                <div class="w-8 h-8 bg-blue-100 rounded flex items-center justify-center text-blue-600 font-bold">K<sub>ES</sub></div>
+                                <div class="w-8 h-8 bg-blue-100 rounded flex items-center justify-center text-blue-600 font-bold">K<sub>EA</sub></div>
+                                <div class="w-8 h-8 bg-purple-100 rounded flex items-center justify-center text-purple-600 font-bold">K<sub>RE</sub></div>
+                                <div class="w-8 h-8 bg-purple-100 rounded flex items-center justify-center text-purple-600 font-bold">K<sub>RR</sub></div>
+                                <div class="w-8 h-8 bg-purple-100 rounded flex items-center justify-center text-purple-600 font-bold">K<sub>RM</sub></div>
+                                <div class="w-8 h-8 bg-purple-100 rounded flex items-center justify-center text-purple-600 font-bold">K<sub>RS</sub></div>
+                                <div class="w-8 h-8 bg-purple-100 rounded flex items-center justify-center text-purple-600 font-bold">K<sub>RA</sub></div>
+                                <div class="w-8 h-8 bg-green-100 rounded flex items-center justify-center text-green-600 font-bold">K<sub>ME</sub></div>
+                                <div class="w-8 h-8 bg-green-100 rounded flex items-center justify-center text-green-600 font-bold">K<sub>MR</sub></div>
+                                <div class="w-8 h-8 bg-green-100 rounded flex items-center justify-center text-green-600 font-bold">K<sub>MM</sub></div>
+                                <div class="w-8 h-8 bg-green-100 rounded flex items-center justify-center text-green-600 font-bold">K<sub>MS</sub></div>
+                                <div class="w-8 h-8 bg-green-100 rounded flex items-center justify-center text-green-600 font-bold">K<sub>MA</sub></div>
+                                <div class="w-8 h-8 bg-orange-100 rounded flex items-center justify-center text-orange-600 font-bold">K<sub>SE</sub></div>
+                                <div class="w-8 h-8 bg-orange-100 rounded flex items-center justify-center text-orange-600 font-bold">K<sub>SR</sub></div>
+                                <div class="w-8 h-8 bg-orange-100 rounded flex items-center justify-center text-orange-600 font-bold">K<sub>SM</sub></div>
+                                <div class="w-8 h-8 bg-orange-100 rounded flex items-center justify-center text-orange-600 font-bold">K<sub>SS</sub></div>
+                                <div class="w-8 h-8 bg-orange-100 rounded flex items-center justify-center text-orange-600 font-bold">K<sub>SA</sub></div>
+                                <div class="w-8 h-8 bg-red-100 rounded flex items-center justify-center text-red-600 font-bold">K<sub>AE</sub></div>
+                                <div class="w-8 h-8 bg-red-100 rounded flex items-center justify-center text-red-600 font-bold">K<sub>AR</sub></div>
+                                <div class="w-8 h-8 bg-red-100 rounded flex items-center justify-center text-red-600 font-bold">K<sub>AM</sub></div>
+                                <div class="w-8 h-8 bg-red-100 rounded flex items-center justify-center text-red-600 font-bold">K<sub>AS</sub></div>
+                                <div class="w-8 h-8 bg-red-100 rounded flex items-center justify-center text-red-600 font-bold">K<sub>AA</sub></div>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-600 mt-2 text-center">双向、非对称、动态交互强度</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <h3 class="text-xl font-bold text-gray-700 mb-4">多尺度环境扰动场</h3>
+                        <div class="w-64 h-48 relative bg-gradient-to-br from-orange-50 to-red-50 rounded-lg border border-gray-200 flex flex-col items-center justify-center p-4">
+                            <div class="w-full h-8 bg-gray-200 rounded-full mb-2 flex items-center justify-center text-xs text-gray-600">宏观系统 (Macrosystem)</div>
+                            <div class="w-4/5 h-8 bg-gray-300 rounded-full mb-2 flex items-center justify-center text-xs text-gray-600">外部系统 (Exosystem)</div>
+                            <div class="w-3/5 h-8 bg-gray-400 rounded-full mb-2 flex items-center justify-center text-xs text-white">中观系统 (Mesosystem)</div>
+                            <div class="w-2/5 h-8 bg-gray-500 rounded-full flex items-center justify-center text-xs text-white">微观系统 (Microsystem)</div>
+                        </div>
+                        <p class="text-sm text-gray-600 mt-2 text-center">嵌套式环境子系统的动态扰动</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Evolution Equation Card -->
+            <div class="card md:col-span-4 p-8 flex flex-col">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-blue"></div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2"><i class="fa-solid fa-infinity text-blue-500"></i>核心演化方程：带记忆效应的非线性耦合随机微分方程组</h2>
+                <div class="bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-gray-200 equation-container">
+                    <p class="text-center text-lg mb-4">人性五大维度的动态演化方程：</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <p class="text-blue-800 font-semibold mb-2">情感维度 (E)</p>
+                            <p class="text-sm">D<sub>t</sub><sup>μ</sup> E(t) = Σ<sub>j=1</sub><sup>5</sup> K<sub>1j</sub>(X, t) · Φ(||X<sub>j</sub>(t) - E(t)||) · X<sub>j</sub>(t) + γ<sub>1</sub> · U<sub>1</sub>(t) + σ<sub>ζ1</sub> · Ξ<sub>1</sub>(t)</p>
+                        </div>
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <p class="text-purple-800 font-semibold mb-2">理性维度 (R)</p>
+                            <p class="text-sm">D<sub>t</sub><sup>μ</sup> R(t) = Σ<sub>j=1</sub><sup>5</sup> K<sub>2j</sub>(X, t) · Φ(||X<sub>j</sub>(t) - R(t)||) · X<sub>j</sub>(t) + γ<sub>2</sub> · U<sub>2</sub>(t) + σ<sub>ζ2</sub> · Ξ<sub>2</sub>(t)</p>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <p class="text-green-800 font-semibold mb-2">道德维度 (M)</p>
+                            <p class="text-sm">D<sub>t</sub><sup>μ</sup> M(t) = Σ<sub>j=1</sub><sup>5</sup> K<sub>3j</sub>(X, t) · Φ(||X<sub>j</sub>(t) - M(t)||) · X<sub>j</sub>(t) + γ<sub>3</sub> · U<sub>3</sub>(t) + σ<sub>ζ3</sub> · Ξ<sub>3</sub>(t)</p>
+                        </div>
+                        <div class="bg-orange-50 p-4 rounded-lg">
+                            <p class="text-orange-800 font-semibold mb-2">社会性维度 (S)</p>
+                            <p class="text-sm">D<sub>t</sub><sup>μ</sup> S(t) = Σ<sub>j=1</sub><sup>5</sup> K<sub>4j</sub>(X, t) · Φ(||X<sub>j</sub>(t) - S(t)||) · X<sub>j</sub>(t) + γ<sub>4</sub> · U<sub>4</sub>(t) + σ<sub>ζ4</sub> · Ξ<sub>4</sub>(t)</p>
+                        </div>
+                        <div class="bg-red-50 p-4 rounded-lg md:col-span-2">
+                            <p class="text-red-800 font-semibold mb-2">自我意识维度 (A)</p>
+                            <p class="text-sm">D<sub>t</sub><sup>μ</sup> A(t) = Σ<sub>j=1</sub><sup>5</sup> K<sub>5j</sub>(X, t) · Φ(||X<sub>j</sub>(t) - A(t)||) · X<sub>j</sub>(t) + γ<sub>5</sub> · U<sub>5</sub>(t) + σ<sub>ζ5</sub> · Ξ<sub>5</sub>(t)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Attractor Card -->
+            <div class="card md:col-span-2 p-8 flex flex-col">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-green"></div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-magnet text-green-500"></i>吸引子与稳态边界</h2>
+                <div class="grid grid-cols-1 gap-4">
+                    <div class="bg-green-50 rounded-lg p-4">
+                        <h3 class="font-bold text-green-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-check-circle"></i>健康整合型吸引子</h3>
+                        <p class="text-sm text-gray-600">五大维度高度耦合、发展均衡的理想状态，是心理成熟、社会适应良好的标志。</p>
+                    </div>
+                    <div class="bg-yellow-50 rounded-lg p-4">
+                        <h3 class="font-bold text-yellow-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-triangle-exclamation"></i>失衡偏执型吸引子</h3>
+                        <p class="text-sm text-gray-600">维度间耦合部分断裂、发展水平存在显著偏差的失衡状态，是心理与社会适应不良的诱因。</p>
+                    </div>
+                    <div class="bg-red-50 rounded-lg p-4">
+                        <h3 class="font-bold text-red-800 mb-2 flex items-center gap-2"><i class="fa-solid fa-bomb"></i>混沌失稳型吸引子</h3>
+                        <p class="text-sm text-gray-600">维度耦合完全破裂、状态无序的混乱状态，是心理崩溃或极端行为的前兆。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Initialization Card -->
+            <div class="card md:col-span-2 p-8 flex flex-col">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-purple"></div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-play text-purple-500"></i>模型初始化</h2>
+                <div class="flex flex-col gap-4">
+                    <div class="flex items-center gap-4">
+                        <div class="text-purple-500 text-4xl"><i class="fa-solid fa-baby"></i></div>
+                        <div>
+                            <h3 class="font-bold text-gray-800">出生初始状态</h3>
+                            <p class="text-sm text-gray-600">基于发展常模数据设定各维度初始值，如理性、道德、自我意识接近0。</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="text-purple-500 text-4xl"><i class="fa-solid fa-sliders"></i></div>
+                        <div>
+                            <h3 class="font-bold text-gray-800">系统参数设置</h3>
+                            <p class="text-sm text-gray-600">设定记忆衰减系数(μ)、耦合强度(η)、环境敏感系数(γ)等个体特质常数。</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="text-purple-500 text-4xl"><i class="fa-solid fa-gear"></i></div>
+                        <div>
+                            <h3 class="font-bold text-gray-800">耦合系数标定</h3>
+                            <p class="text-sm text-gray-600">基于实证研究数据，标定各维度间的基础交互强度矩阵(K<sub>ij</sub>)。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Development Stages Chart Card -->
+            <div class="card md:col-span-4 p-8 flex flex-col">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-teal"></div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2"><i class="fa-solid fa-chart-line text-teal-500"></i>人性发展阶段与维度演化趋势</h2>
+                <div class="w-full h-80">
+                    <canvas id="developmentChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Model Application Card -->
+            <div class="card md:col-span-4 p-8 flex flex-col">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-orange"></div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2"><i class="fa-solid fa-rocket text-orange-500"></i>模型应用与价值</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white/50 rounded-xl p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-person-running text-blue-500"></i>个体发展轨迹拟合</h3>
+                        <p class="text-gray-600 mb-4">通过代入纵向追踪数据，拟合特定个体的人性发展的实际轨迹，分析其发展特点与潜在风险。</p>
+                        <div class="flex items-center gap-2 text-sm text-gray-500">
+                            <div class="flex items-center gap-1"><i class="fa-solid fa-check text-green-500"></i><span>心理评估</span></div>
+                            <div class="flex items-center gap-1"><i class="fa-solid fa-check text-green-500"></i><span>教育指导</span></div>
+                            <div class="flex items-center gap-1"><i class="fa-solid fa-check text-green-500"></i><span>临床诊断</span></div>
+                        </div>
+                    </div>
+                    <div class="bg-white/50 rounded-xl p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-flask-vial text-purple-500"></i>环境影响趋势推演</h3>
+                        <p class="text-gray-600 mb-4">在设定初始条件与环境参数后，通过数值模拟推演不同环境下的人性发展趋势，预测潜在结果。</p>
+                        <div class="flex items-center gap-2 text-sm text-gray-500">
+                            <div class="flex items-center gap-1"><i class="fa-solid fa-check text-green-500"></i><span>政策制定</span></div>
+                            <div class="flex items-center gap-1"><i class="fa-solid fa-check text-green-500"></i><span>社会规划</span></div>
+                            <div class="flex items-center gap-1"><i class="fa-solid fa-check text-green-500"></i><span>风险预警</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // 人性发展阶段与维度演化趋势图表
+        const ctx = document.getElementById('developmentChart').getContext('2d');
+        const developmentChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['0-6月', '6-18月', '18月-3年', '3-7年', '7-12年', '12-18年', '18-25年'],
+                datasets: [
+                    {
+                        label: '情感 (Emotion)',
+                        data: [0.2, 0.4, 0.6, 0.7, 0.8, 0.85, 0.9],
+                        borderColor: '#3B82F6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    },
+                    {
+                        label: '理性 (Reasoning)',
+                        data: [0.05, 0.1, 0.2, 0.4, 0.65, 0.8, 0.9],
+                        borderColor: '#8B5CF6',
+                        backgroundColor: 'rgba(139, 92, 246, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    },
+                    {
+                        label: '道德 (Morality)',
+                        data: [0, 0.05, 0.1, 0.3, 0.5, 0.75, 0.85],
+                        borderColor: '#22C55E',
+                        backgroundColor: 'rgba(34, 197, 94, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    },
+                    {
+                        label: '社会性 (Sociality)',
+                        data: [0.1, 0.3, 0.5, 0.65, 0.75, 0.8, 0.85],
+                        borderColor: '#F97316',
+                        backgroundColor: 'rgba(249, 115, 22, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    },
+                    {
+                        label: '自我意识 (Self-awareness)',
+                        data: [0, 0.05, 0.2, 0.4, 0.6, 0.75, 0.9],
+                        borderColor: '#EF4444',
+                        backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false
+                    },
+                    title: {
+                        display: true,
+                        text: '五大维度发展成熟度曲线'
+                    }
+                },
+                scales: {
+                    y: {
+                        min: 0,
+                        max: 1,
+                        title: {
+                            display: true,
+                            text: '发展成熟度'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: '发展阶段'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

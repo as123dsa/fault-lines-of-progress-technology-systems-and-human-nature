@@ -1,0 +1,485 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中国灵活就业深度分析报告</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #FFFFFF;
+        }
+        .card {
+            background-color: white;
+            border: 1px solid #E5E7EB;
+            border-radius: 1.25rem; /* 20px */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            overflow: hidden;
+            position: relative;
+        }
+        .highlight-gradient-blue {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0), rgba(59, 130, 246, 0.05));
+        }
+        .highlight-gradient-green {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0), rgba(34, 197, 94, 0.05));
+        }
+        .highlight-gradient-purple {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0), rgba(168, 85, 247, 0.05));
+        }
+        .highlight-gradient-amber {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0), rgba(245, 158, 11, 0.05));
+        }
+        .highlight-gradient-sky {
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0), rgba(14, 165, 233, 0.05));
+        }
+        .highlight-gradient-rose {
+            background: linear-gradient(135deg, rgba(244, 63, 94, 0), rgba(244, 63, 94, 0.05));
+        }
+        .text-gradient-blue {
+            background-image: linear-gradient(to right, #3B82F6, #60A5FA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-gradient-green {
+            background-image: linear-gradient(to right, #22C55E, #4ADE80);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-gradient-purple {
+            background-image: linear-gradient(to right, #A855F7, #C084FC);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-gradient-amber {
+            background-image: linear-gradient(to right, #F59E0B, #FBBF24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-gradient-sky {
+            background-image: linear-gradient(to right, #0EA5E9, #38BDF8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-gradient-rose {
+            background-image: linear-gradient(to right, #F43F5E, #FB7185);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <div class="max-w-7xl mx-auto p-4 md:p-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
+            <!-- 标题卡片 -->
+            <div class="card md:col-span-4 p-8 flex flex-col justify-center items-center text-center">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-blue"></div>
+                <div class="relative z-10">
+                    <h1 class="text-4xl md:text-6xl font-bold text-gray-800 mb-4">中国灵活就业深度分析报告</h1>
+                    <p class="text-xl md:text-2xl text-gray-500 font-light">规模、趋势、社会影响与国际对标</p>
+                </div>
+            </div>
+
+            <!-- 核心摘要卡片 -->
+            <div class="card md:col-span-4 p-8">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-green"></div>
+                <div class="relative z-10">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">核心摘要与关键结论</h2>
+                    <p class="text-gray-600 mb-4">本报告基于官方统计、头部行业调研与学术公开数据，将灵活就业定义为“城镇非农产业中没有正式劳动关系、缺乏职工社保保障的就业形态”，涵盖平台新就业形态、传统零工及个体工商户三类核心群体。</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                        <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                            <p class="font-semibold text-green-800">规模爆发性扩张</p>
+                            <p class="text-green-700">2025年中国灵活就业规模达2.8亿，2026年预计将突破3.2亿，占总就业人口比重升至44%。</p>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                            <p class="font-semibold text-green-800">行业构成分化</p>
+                            <p class="text-green-700">家政、网约车、外卖、网络主播是规模最大的四类灵活就业形态。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 规模数据卡片 -->
+            <div class="card md:col-span-2 p-8 flex flex-col justify-center">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-purple"></div>
+                <div class="relative z-10">
+                    <p class="text-gray-500 text-lg">2025年灵活就业规模</p>
+                    <p class="text-7xl font-bold text-gradient-purple my-2">2.8<span class="text-4xl ml-2">亿人</span></p>
+                    <p class="text-gray-600">占总就业人口比重约 <span class="font-bold text-purple-600">38.6%</span></p>
+                    <div class="mt-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-3 h-3 rounded-full bg-purple-400"></div>
+                            <p class="text-gray-500">机构研究口径数据</p>
+                        </div>
+                        <div class="flex items-center space-x-4 mt-2">
+                            <div class="w-3 h-3 rounded-full bg-gray-300"></div>
+                            <p class="text-gray-500">官方口径数据（超2亿）</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 预测卡片 -->
+            <div class="card md:col-span-2 p-8 flex flex-col justify-center">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-amber"></div>
+                <div class="relative z-10">
+                    <p class="text-gray-500 text-lg">2026年预测规模</p>
+                    <p class="text-7xl font-bold text-gradient-amber my-2">3.2<span class="text-4xl ml-2">亿人</span></p>
+                    <p class="text-gray-600">预计占总就业人口比重升至 <span class="font-bold text-amber-600">44.1%</span></p>
+                    <div class="mt-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-3 h-3 rounded-full bg-amber-400"></div>
+                            <p class="text-gray-500">复合年增长率约 8.1%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 行业分布图表卡片 -->
+            <div class="card md:col-span-4 p-8">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-sky"></div>
+                <div class="relative z-10">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">灵活就业行业分布</h2>
+                    <div class="h-80">
+                        <canvas id="industryChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 人员构成特征卡片 -->
+            <div class="card md:col-span-4 p-8">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-rose"></div>
+                <div class="relative z-10">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">人员构成特征</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-white p-6 rounded-lg border border-gray-100 shadow-sm">
+                            <div class="flex items-center mb-4">
+                                <i class="fa-solid fa-calendar-days text-3xl text-rose-500"></i>
+                                <h3 class="text-xl font-bold text-gray-800 ml-3">年龄分布</h3>
+                            </div>
+                            <p class="text-gray-600 mb-3">整体集中在青壮年劳动力群体，但行业差异显著。</p>
+                            <ul class="text-sm text-gray-500 space-y-1">
+                                <li>• 外卖/配送：25岁以下占比47.96%</li>
+                                <li>• 网约车/货运：36-50岁占比63.1%</li>
+                                <li>• 直播/电商：21-30岁占比65.1%</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg border border-gray-100 shadow-sm">
+                            <div class="flex items-center mb-4">
+                                <i class="fa-solid fa-venus-mars text-3xl text-rose-500"></i>
+                                <h3 class="text-xl font-bold text-gray-800 ml-3">性别分布</h3>
+                            </div>
+                            <p class="text-gray-600 mb-3">行业分化特征明显，女性在部分行业占比高。</p>
+                            <ul class="text-sm text-gray-500 space-y-1">
+                                <li>• 家政服务：女性占比超70%</li>
+                                <li>• 直播电商：女性主播占比近60%</li>
+                                <li>• 外卖/网约车：男性占比超85%</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg border border-gray-100 shadow-sm">
+                            <div class="flex items-center mb-4">
+                                <i class="fa-solid fa-graduation-cap text-3xl text-rose-500"></i>
+                                <h3 class="text-xl font-bold text-gray-800 ml-3">学历分布</h3>
+                            </div>
+                            <p class="text-gray-600 mb-3">以中等学历为主，新兴行业学历层次较高。</p>
+                            <ul class="text-sm text-gray-500 space-y-1">
+                                <li>• 传统零工：以高中及以下为主</li>
+                                <li>• 平台类行业：大专及以上近30%</li>
+                                <li>• 直播电商：大专及以上超40%</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 地域分布趋势卡片 -->
+            <div class="card md:col-span-4 p-8">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-blue"></div>
+                <div class="relative z-10">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">地域分布趋势</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4">宏观流动趋势</h3>
+                            <p class="text-gray-600 mb-4">从跨省流动到本地就近就业转变，县域市场成为重要增量来源。</p>
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                                <p class="font-semibold text-blue-800">核心驱动因素</p>
+                                <p class="text-blue-700">县域就业岗位"性价比优势"凸显：月均收入4000-7000元，约为当地传统岗位收入的1.5倍，生活成本显著低于一二线城市。</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4">省级区域分布</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-3 h-3 rounded-full bg-blue-400 mt-2"></div>
+                                    <div>
+                                        <p class="font-semibold text-gray-700">东部沿海地区</p>
+                                        <p class="text-gray-500 text-sm">规模庞大，偏向数字平台类、商务服务类行业。</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-3 h-3 rounded-full bg-blue-400 mt-2"></div>
+                                    <div>
+                                        <p class="font-semibold text-gray-700">中西部地区</p>
+                                        <p class="text-gray-500 text-sm">偏向生活服务类行业，具有"就业托底"功能。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 规模预测图表卡片 -->
+            <div class="card md:col-span-4 p-8">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-green"></div>
+                <div class="relative z-10">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">灵活就业规模预测 (2026-2030)</h2>
+                    <div class="h-80">
+                        <canvas id="forecastChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 社会影响卡片 -->
+            <div class="card md:col-span-4 p-8">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-purple"></div>
+                <div class="relative z-10">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">社会影响与公众情绪</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4">生存状态特征</h3>
+                            <div class="space-y-4">
+                                <div class="bg-purple-50 p-4 rounded-lg border border-purple-100">
+                                    <p class="font-semibold text-purple-800">收入保障不稳定</p>
+                                    <p class="text-purple-700 text-sm">月均收入6179元，但缺乏底薪保障，收入波动大。</p>
+                                </div>
+                                <div class="bg-purple-50 p-4 rounded-lg border border-purple-100">
+                                    <p class="font-semibold text-purple-800">劳动保障不充分</p>
+                                    <p class="text-purple-700 text-sm">劳动强度高，社保参保率不足三成，职业伤害保障缺失。</p>
+                                </div>
+                                <div class="bg-purple-50 p-4 rounded-lg border border-purple-100">
+                                    <p class="font-semibold text-purple-800">职业发展不可控</p>
+                                    <p class="text-purple-700 text-sm">缺乏技能积累和晋升空间，社会认可度偏低。</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4">社会情绪特征</h3>
+                            <p class="text-gray-600 mb-4">整体呈现"双向分化、整体焦虑"的情绪特征。</p>
+                            <div class="space-y-3">
+                                <div class="flex items-center space-x-3">
+                                    <i class="fa-solid fa-arrow-down text-red-500"></i>
+                                    <p class="text-gray-700"><span class="font-semibold">被动入行群体 (70%)</span>：因现实压力被迫选择，情绪偏负面。</p>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <i class="fa-solid fa-arrow-up text-green-500"></i>
+                                    <p class="text-gray-700"><span class="font-semibold">主动选择群体 (30%)</span>：追求自由或高薪，情绪相对正面。</p>
+                                </div>
+                            </div>
+                            <div class="mt-6 p-4 bg-white rounded-lg border border-gray-100 shadow-sm">
+                                <p class="text-gray-600 text-sm">核心诉求集中在：提高收入稳定性、完善劳动与社会保障体系、提供职业发展支撑。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 国际对比卡片 -->
+            <div class="card md:col-span-4 p-8">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-amber"></div>
+                <div class="relative z-10">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">国际对比分析：日韩经验</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4">日本灵活就业模式</h3>
+                            <div class="bg-amber-50 p-4 rounded-lg border border-amber-100 mb-4">
+                                <p class="font-semibold text-amber-800">现状</p>
+                                <p class="text-amber-700">非正规就业占比由1985年的不足15%，持续攀升至2023年的37.1%，规模突破2000万人。</p>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="text-gray-700"><span class="font-semibold">相似点：</span></p>
+                                <ul class="text-sm text-gray-500 space-y-1 ml-4">
+                                    <li>• 产业结构转型背景相似</li>
+                                    <li>• 企业用工成本驱动逻辑相似</li>
+                                    <li>• 灵活就业行业结构相似</li>
+                                </ul>
+                                <p class="text-gray-700 mt-2"><span class="font-semibold">差异点：</span></p>
+                                <ul class="text-sm text-gray-500 space-y-1 ml-4">
+                                    <li>• 发展阶段：日本已进入成熟期</li>
+                                    <li>• 驱动力量：日本主要源于企业降本需求</li>
+                                    <li>• 保障水平：日本保障体系更完善</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4">韩国灵活就业模式</h3>
+                            <div class="bg-amber-50 p-4 rounded-lg border border-amber-100 mb-4">
+                                <p class="font-semibold text-amber-800">现状</p>
+                                <p class="text-amber-700">2025年8月，非正规就业规模达856.8万人，占总就业人口比例超三成。短期零工类群体规模174.2万人。</p>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="text-gray-700"><span class="font-semibold">行业分布：</span></p>
+                                <ul class="text-sm text-gray-500 space-y-1 ml-4">
+                                    <li>• 农林渔业：20.9%</li>
+                                    <li>• 批发零售业：16.7%</li>
+                                    <li>• 住宿餐饮业：13.5%</li>
+                                </ul>
+                                <div class="mt-4 p-4 bg-white rounded-lg border border-gray-100 shadow-sm">
+                                    <p class="text-gray-600 text-sm">中国当前的灵活就业结构，更接近于日本1990年代末、韩国2010年代初的产业转型阶段特征。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    // 行业分布图表
+    const industryCtx = document.getElementById('industryChart').getContext('2d');
+    const industryChart = new Chart(industryCtx, {
+        type: 'bar',
+        data: {
+            labels: ['家政服务', '网约车/出租车', '公路货运', '网络直播/电商', '外卖配送', '快递物流', '同城维修/服务'],
+            datasets: [{
+                label: '规模 (万人)',
+                data: [4680, 3724, 1813, 1746, 1500, 320, 113],
+                backgroundColor: [
+                    'rgba(59, 130, 246, 0.7)',
+                    'rgba(34, 197, 94, 0.7)',
+                    'rgba(168, 85, 247, 0.7)',
+                    'rgba(245, 158, 11, 0.7)',
+                    'rgba(14, 165, 233, 0.7)',
+                    'rgba(244, 63, 94, 0.7)',
+                    'rgba(107, 114, 128, 0.7)'
+                ],
+                borderColor: [
+                    'rgba(59, 130, 246, 1)',
+                    'rgba(34, 197, 94, 1)',
+                    'rgba(168, 85, 247, 1)',
+                    'rgba(245, 158, 11, 1)',
+                    'rgba(14, 165, 233, 1)',
+                    'rgba(244, 63, 94, 1)',
+                    'rgba(107, 114, 128, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+            indexAxis: 'y',
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return ` ${context.dataset.label}: ${context.raw} 万人`;
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    grid: {
+                        color: 'rgba(0, 0, 0, 0.05)'
+                    }
+                },
+                y: {
+                    grid: {
+                        display: false
+                    }
+                }
+            }
+        }
+    });
+
+    // 规模预测图表
+    const forecastCtx = document.getElementById('forecastChart').getContext('2d');
+    const forecastChart = new Chart(forecastCtx, {
+        type: 'line',
+        data: {
+            labels: ['2024', '2025', '2026', '2027', '2028', '2029', '2030'],
+            datasets: [{
+                label: '灵活就业规模 (亿人)',
+                data: [2.6, 2.8, 3.2, 3.5, 3.75, 3.95, 4.1],
+                borderColor: 'rgba(34, 197, 94, 1)',
+                backgroundColor: 'rgba(34, 197, 94, 0.1)',
+                borderWidth: 3,
+                fill: true,
+                tension: 0.4
+            }, {
+                label: '占总就业人口比重 (%)',
+                data: [36.1, 38.6, 44.1, 47.3, 49.2, 50.5, 51.2],
+                borderColor: 'rgba(59, 130, 246, 1)',
+                backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                borderWidth: 3,
+                fill: true,
+                tension: 0.4,
+                yAxisID: 'y1'
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+            interaction: {
+                mode: 'index',
+                intersect: false,
+            },
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            let label = context.dataset.label || '';
+                            if (label) {
+                                label += ': ';
+                            }
+                            if (context.parsed.y !== null) {
+                                label += context.parsed.y + (context.datasetIndex === 0 ? ' 亿人' : ' %');
+                            }
+                            return label;
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    grid: {
+                        color: 'rgba(0, 0, 0, 0.05)'
+                    }
+                },
+                y: {
+                    type: 'linear',
+                    display: true,
+                    position: 'left',
+                    title: {
+                        display: true,
+                        text: '规模 (亿人)'
+                    },
+                    grid: {
+                        color: 'rgba(0, 0, 0, 0.05)'
+                    }
+                },
+                y1: {
+                    type: 'linear',
+                    display: true,
+                    position: 'right',
+                    title: {
+                        display: true,
+                        text: '占比 (%)'
+                    },
+                    grid: {
+                        drawOnChartArea: false,
+                    },
+                }
+            }
+        }
+    });
+</script>
+</html>

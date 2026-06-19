@@ -1,0 +1,529 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>俄乌战争走势终极推演报告</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Noto Sans SC', 'Roboto', sans-serif;
+            background-color: #FFFFFF;
+        }
+        .card {
+            background-color: white;
+            border: 1px solid #E5E7EB;
+            border-radius: 1.25rem; /* 20px */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            overflow: hidden;
+            position: relative;
+        }
+        .highlight-gradient-blue {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0), rgba(59, 130, 246, 0.05));
+        }
+        .highlight-gradient-green {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0), rgba(34, 197, 94, 0.05));
+        }
+        .highlight-gradient-red {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0), rgba(239, 68, 68, 0.05));
+        }
+        .highlight-gradient-purple {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0), rgba(168, 85, 247, 0.05));
+        }
+        .highlight-gradient-yellow {
+            background: linear-gradient(135deg, rgba(234, 179, 8, 0), rgba(234, 179, 8, 0.05));
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <div class="max-w-7xl mx-auto p-4 md:p-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
+            <!-- 主标题卡片 -->
+            <div class="card md:col-span-4 p-8 flex flex-col justify-center items-center text-center">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-blue"></div>
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-800 mb-4">俄乌战争走势终极推演报告</h1>
+                <p class="text-lg md:text-xl text-gray-500 max-w-4xl">基于博弈论、军事代差与经济崩溃的多维度情景分析</p>
+                <div class="mt-8 text-sm text-gray-400">2025-2026 战场数据与全球智库研判</div>
+            </div>
+
+            <!-- 核心结论1: 战争结局必然性 -->
+            <div class="card md:col-span-2 p-6 flex flex-col">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-red"></div>
+                <div class="flex items-center mb-4">
+                    <i class="fa-solid fa-scale-unbalanced text-2xl text-red-500 mr-3"></i>
+                    <h2 class="text-xl font-bold text-gray-800">战争结局的必然性</h2>
+                </div>
+                <p class="text-gray-600 mb-4">不存在通过和谈终结的任何现实可能，仅能以一方的彻底军事失败或国家意志的全面崩溃画上句号。</p>
+                <div class="mt-auto pt-4 border-t border-gray-100">
+                    <div class="text-sm text-gray-500">核心逻辑：</div>
+                    <div class="text-sm font-medium text-red-600">博弈论中的"蜈蚣博弈"理性困局</div>
+                </div>
+            </div>
+
+            <!-- 核心结论2: 军事代差 -->
+            <div class="card md:col-span-2 p-6 flex flex-col">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-blue"></div>
+                <div class="flex items-center mb-4">
+                    <i class="fa-solid fa-robot text-2xl text-blue-500 mr-3"></i>
+                    <h2 class="text-xl font-bold text-gray-800">军事对抗的时代性</h2>
+                </div>
+                <p class="text-gray-600 mb-4">两军呈现"信息化智能化VS工业化半信息化"的显著代差，乌克兰的作战体系实现了对传统战场逻辑的彻底颠覆。</p>
+                <div class="mt-auto pt-4 border-t border-gray-100">
+                    <div class="text-sm text-gray-500">核心支撑：</div>
+                    <div class="text-sm font-medium text-blue-600">无人化装备、星链卫星、AI感知节点</div>
+                </div>
+            </div>
+
+            <!-- 核心结论3: 俄罗斯双重崩溃 -->
+            <div class="card md:col-span-2 p-6 flex flex-col">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-green"></div>
+                <div class="flex items-center mb-4">
+                    <i class="fa-solid fa-arrow-trend-down text-2xl text-green-500 mr-3"></i>
+                    <h2 class="text-xl font-bold text-gray-800">俄罗斯的双重崩溃逻辑</h2>
+                </div>
+                <p class="text-gray-600 mb-4">乌克兰将"远程精确打击+经济全面绞杀"作为核心战略，彻底掏空俄罗斯的战时经济支柱，触发其经济体系的系统性崩溃。</p>
+                <div class="mt-auto pt-4 border-t border-gray-100">
+                    <div class="text-sm text-gray-500">打击目标：</div>
+                    <div class="text-sm font-medium text-green-600">石油天然气设施、财政压力临界点</div>
+                </div>
+            </div>
+
+            <!-- 核心结论4: 终极时序推演 -->
+            <div class="card md:col-span-2 p-6 flex flex-col">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-purple"></div>
+                <div class="flex items-center mb-4">
+                    <i class="fa-solid fa-flag-checkered text-2xl text-purple-500 mr-3"></i>
+                    <h2 class="text-xl font-bold text-gray-800">终极时序推演结果</h2>
+                </div>
+                <p class="text-gray-600 mb-4">在2027年3月前后，乌克兰将基本上完全恢复其1991年国际公认的全部领土边界；俄罗斯联邦将出现显著的解体趋势。</p>
+                <div class="mt-auto pt-4 border-t border-gray-100">
+                    <div class="text-sm text-gray-500">关键时间点：</div>
+                    <div class="text-sm font-medium text-purple-600">2027年3月</div>
+                </div>
+            </div>
+
+            <!-- 引言：博弈论分析 -->
+            <div class="card md:col-span-4 p-6">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-yellow"></div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">一、引言：基于博弈论的战争终局逻辑推演</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="md:col-span-2">
+                        <h3 class="text-lg font-semibold text-gray-700 mb-2">1.1 研究背景与推演方法</h3>
+                        <p class="text-gray-600 mb-4">自2025年夏季以来，俄乌战争的战场形态完成了从"动态攻防战"到"长期消耗战"的彻底转变。本报告依托全球顶尖智库的实时战场态势感知和中长期战略研判，将"蜈蚣博弈"的多轮博弈逻辑，与"消耗战博弈"的战争运行规律进行耦合。</p>
+                        <h3 class="text-lg font-semibold text-gray-700 mb-2">1.2 "和谈无用论"的博弈论分析</h3>
+                        <p class="text-gray-600">在当前双方资源尚未彻底消耗的前提下，达成任何实质性可持续和平协议的概率几乎为零。双方的战略底线存在不可调和的结构性矛盾：俄方要求乌克兰承认克里米亚及乌东四州归属，乌方则坚决要求恢复1991年全部领土。</p>
+                    </div>
+                    <div class="flex flex-col justify-center items-center text-center">
+                        <div class="w-40 h-40 rounded-full bg-yellow-100 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-brain text-6xl text-yellow-500"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800 mb-2">核心博弈模型</h4>
+                        <p class="text-gray-600">蜈蚣博弈</p>
+                        <p class="text-gray-600">消耗战博弈</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 历史案例 -->
+            <div class="card md:col-span-4 p-6">
+                <h3 class="text-lg font-semibold text-gray-700 mb-4">1.3 历史案例支撑：类似非和谈结局的战争类比</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="p-4 bg-gray-50 rounded-lg border border-gray-100">
+                        <div class="flex items-center mb-2">
+                            <i class="fa-solid fa-helicopter text-red-500 mr-2"></i>
+                            <h4 class="font-bold text-gray-800">苏联入侵阿富汗战争</h4>
+                        </div>
+                        <p class="text-sm text-gray-600">1979-1989年，苏联深陷战争泥潭，最终撤军，两年后苏联解体。</p>
+                    </div>
+                    <div class="p-4 bg-gray-50 rounded-lg border border-gray-100">
+                        <div class="flex items-center mb-2">
+                            <i class="fa-solid fa-flag-usa text-blue-500 mr-2"></i>
+                            <h4 class="font-bold text-gray-800">美国内战</h4>
+                        </div>
+                        <p class="text-sm text-gray-600">1861-1865年，南北双方在核心利益上不可调和，最终以一方军事失败告终。</p>
+                    </div>
+                    <div class="p-4 bg-gray-50 rounded-lg border border-gray-100">
+                        <div class="flex items-center mb-2">
+                            <i class="fa-solid fa-earth-asia text-green-500 mr-2"></i>
+                            <h4 class="font-bold text-gray-800">纳卡冲突</h4>
+                        </div>
+                        <p class="text-sm text-gray-600">1994-2018年，持续25年的和平谈判未能形成最终解决方案。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 军事维度分析 -->
+            <div class="card md:col-span-4 p-6">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-blue"></div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">二、军事维度分析：智能化 vs 工业化-信息化时代的代差对决</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- 乌克兰智能化无人化战略 -->
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700 mb-3">2.1 乌克兰的"智能化无人化"总体战略</h3>
+                        <p class="text-gray-600 mb-4">乌克兰军队已进化为完全适配现代信息化战争的"智能无人化体系"，通过"无人平台替代有人作战平台、人工智能辅助替代人类决策"，将己方人员伤亡风险降到最低。</p>
+                        
+                        <h4 class="font-bold text-gray-800 mb-2">核心作战体系：</h4>
+                        <ul class="list-disc list-inside text-gray-600 mb-4 space-y-1">
+                            <li>无人作战平台 + 星链数据传输 + AI感知节点</li>
+                            <li>实现"发现即摧毁"的实时作战能力</li>
+                            <li>民转军体系提供源源不断的装备支撑</li>
+                        </ul>
+
+                        <h4 class="font-bold text-gray-800 mb-2">典型战例：</h4>
+                        <div class="p-3 bg-blue-50 rounded-lg mb-2">
+                            <p class="text-sm font-medium text-blue-800">2025年8月 "蛛网行动"</p>
+                            <p class="text-xs text-blue-600">对俄军境内1000公里外的空军基地和炼油厂发起远程精准打击。</p>
+                        </div>
+                        <div class="p-3 bg-blue-50 rounded-lg">
+                            <p class="text-sm font-medium text-blue-800">2026年5月 顿巴斯"无人化围歼战"</p>
+                            <p class="text-xs text-blue-600">完全依托无人作战体系，歼灭俄军装甲纵队，自身零伤亡。</p>
+                        </div>
+                    </div>
+
+                    <!-- 俄罗斯战略滞后性 -->
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700 mb-3">2.2 俄罗斯的"大炮时代"战略滞后性</h3>
+                        <p class="text-gray-600 mb-4">俄军的军事技术、战术思想与装备体系，仍停留在二战后的"大炮火力+机械化集群推进"时代，完全无法匹配信息化战争的基本作战需求。</p>
+                        
+                        <h4 class="font-bold text-gray-800 mb-2">核心缺陷：</h4>
+                        <ul class="list-disc list-inside text-gray-600 mb-4 space-y-1">
+                            <li>系统性信息化短板，装备不支持数字化通信组网</li>
+                            <li>侦察手段落后，缺乏高性能空中无人侦察平台</li>
+                            <li>防空系统无法应对乌军无人化作战集群</li>
+                            <li>无人作战装备数量严重不足，性能水平落后</li>
+                        </ul>
+
+                        <h4 class="font-bold text-gray-800 mb-2">战术失效：</h4>
+                        <div class="p-3 bg-red-50 rounded-lg mb-2">
+                            <p class="text-sm font-medium text-red-800">传统进攻模式</p>
+                            <p class="text-xs text-red-600">长时间炮火覆盖 + 装甲部队正面冲锋，成"自杀式攻击"。</p>
+                        </div>
+                        <div class="p-3 bg-red-50 rounded-lg">
+                            <p class="text-sm font-medium text-red-800">装备代差</p>
+                            <p class="text-xs text-red-600">T-72、T-80坦克火控系统落后，BMP步战车防护薄弱。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 军事代差专家共识 -->
+            <div class="card md:col-span-4 p-6">
+                <h3 class="text-lg font-semibold text-gray-700 mb-4">2.3 关于双方军事代差的专家共识</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="p-4 border border-gray-200 rounded-lg">
+                        <div class="flex items-center mb-2">
+                            <i class="fa-solid fa-quote-left text-blue-500 mr-2"></i>
+                            <h4 class="font-bold text-gray-800">法国战略研究所 (IFRI)</h4>
+                        </div>
+                        <p class="text-sm text-gray-600 italic">"俄乌两军在军事技术水平和作战理念上的差距，已经不是简单的'先进与落后'的区别，而是'信息化军队与前信息化军队'的代际性本质差异。"</p>
+                    </div>
+                    <div class="p-4 border border-gray-200 rounded-lg">
+                        <div class="flex items-center mb-2">
+                            <i class="fa-solid fa-quote-left text-green-500 mr-2"></i>
+                            <h4 class="font-bold text-gray-800">美国战争研究所 (ISW)</h4>
+                        </div>
+                        <p class="text-sm text-gray-600 italic">"乌军的无人化作战体系，已经从根本上瓦解了俄军在炮兵力量和装甲部队上的传统数量优势。"</p>
+                    </div>
+                    <div class="p-4 border border-gray-200 rounded-lg">
+                        <div class="flex items-center mb-2">
+                            <i class="fa-solid fa-quote-left text-red-500 mr-2"></i>
+                            <h4 class="font-bold text-gray-800">俄罗斯军事专家安德烈·平丘克</h4>
+                        </div>
+                        <p class="text-sm text-gray-600 italic">"乌克兰的军事能力已经实现了质的飞跃，其无人化作战体系已经成熟到足以抵消俄军在兵力和装备上的所有传统优势。"</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 战争消耗比图表 -->
+            <div class="card md:col-span-4 p-6">
+                <h3 class="text-lg font-semibold text-gray-700 mb-4">战争消耗比 (2025年数据)</h3>
+                <div class="h-64">
+                    <canvas id="exchangeRatioChart"></canvas>
+                </div>
+            </div>
+
+            <!-- 经济与能源战争维度 -->
+            <div class="card md:col-span-4 p-6">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-green"></div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">三、经济与能源战争维度：俄罗斯双重失血的不可逆崩溃逻辑</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- 乌克兰对俄罗斯能源基础设施的战略绞杀 -->
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700 mb-3">3.1 乌克兰对俄罗斯能源基础设施的战略绞杀</h3>
+                        <p class="text-gray-600 mb-4">乌克兰将矛头直接指向俄罗斯的能源基础设施这一命门，通过对俄罗斯境内的炼油厂、油库、石油转运终端的持续远程精准打击，直接瘫痪俄罗斯的能源加工与出口能力。</p>
+                        
+                        <h4 class="font-bold text-gray-800 mb-2">主要打击目标 (2025-2026)：</h4>
+                        <ul class="list-disc list-inside text-gray-600 space-y-1 mb-4">
+                            <li>梁赞炼油厂 (2025年8月)</li>
+                            <li>基里希炼油厂 (2025年9月) - 年加工1800万吨</li>
+                            <li>新库伊比雪夫斯克炼油厂 (2025年9月) - 年加工1300万吨</li>
+                            <li>新斯巴斯克炼油厂 (2025年10月)</li>
+                            <li>伏尔加河畔石油制品转运枢纽 (2026年1月)</li>
+                        </ul>
+
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <i class="fa-solid fa-chart-pie text-green-600 mr-2"></i>
+                                <h4 class="font-bold text-green-800">打击效果</h4>
+                            </div>
+                            <p class="text-sm text-green-700">截至2025年12月，俄罗斯全国有至少37%的炼油产能因乌军空袭陷入长期瘫痪。</p>
+                        </div>
+                    </div>
+
+                    <!-- 俄罗斯战时经济的内爆式崩溃 -->
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700 mb-3">3.2 俄罗斯战时经济的内爆式崩溃</h3>
+                        <p class="text-gray-600 mb-4">能源出口收入的大幅下滑与战时财政的同步崩溃，形成了一个"收入减少、支出增加、财政压力扩大"的死亡螺旋。</p>
+                        
+                        <h4 class="font-bold text-gray-800 mb-2">财政数据：</h4>
+                        <div class="space-y-2 mb-4">
+                            <div class="flex justify-between items-center p-2 bg-gray-50 rounded">
+                                <span class="text-sm text-gray-600">2025年国防预算占GDP比例</span>
+                                <span class="font-bold text-red-600">7.3%</span>
+                            </div>
+                            <div class="flex justify-between items-center p-2 bg-gray-50 rounded">
+                                <span class="text-sm text-gray-600">2021-2025年国防预算增长</span>
+                                <span class="font-bold text-red-600">275%</span>
+                            </div>
+                            <div class="flex justify-between items-center p-2 bg-gray-50 rounded">
+                                <span class="text-sm text-gray-600">2026年国防和安全开支</span>
+                                <span class="font-bold text-red-600">16.84万亿卢布</span>
+                            </div>
+                            <div class="flex justify-between items-center p-2 bg-gray-50 rounded">
+                                <span class="text-sm text-gray-600">国家财富基金缩水 (战前-2026年初)</span>
+                                <span class="font-bold text-red-600">超过70%</span>
+                            </div>
+                        </div>
+
+                        <h4 class="font-bold text-gray-800 mb-2">经济增长预测：</h4>
+                        <div class="space-y-2">
+                            <div class="flex items-center">
+                                <div class="w-16 text-sm text-gray-500">2025年</div>
+                                <div class="flex-1 bg-gray-200 rounded-full h-2 mx-2">
+                                    <div class="bg-red-500 h-2 rounded-full" style="width: 10%"></div>
+                                </div>
+                                <div class="w-10 text-sm font-medium">1%</div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-16 text-sm text-gray-500">2026年</div>
+                                <div class="flex-1 bg-gray-200 rounded-full h-2 mx-2">
+                                    <div class="bg-red-500 h-2 rounded-full" style="width: 5%"></div>
+                                </div>
+                                <div class="w-10 text-sm font-medium">0.5%</div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-16 text-sm text-gray-500">2027年</div>
+                                <div class="flex-1 bg-gray-200 rounded-full h-2 mx-2">
+                                    <div class="bg-red-500 h-2 rounded-full" style="width: 3%"></div>
+                                </div>
+                                <div class="w-10 text-sm font-medium">0.3%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 经济崩溃与军事失败的传导关系 -->
+            <div class="card md:col-span-4 p-6">
+                <h3 class="text-lg font-semibold text-gray-700 mb-4">3.3 经济崩溃与军事失败的必然传导关系</h3>
+                <p class="text-gray-600 mb-4">历史上有充足的案例证明：经济的彻底崩溃，会直接导致军事的全线失败。现代战争的本质，是交战国工业能力与经济潜力的全面对撞。</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-bold text-gray-800 mb-2">历史案例佐证：</h4>
+                        <div class="space-y-3">
+                            <div class="p-3 bg-gray-50 rounded-lg border border-gray-100">
+                                <p class="text-sm font-medium text-gray-800">南北战争时期的南方邦联</p>
+                                <p class="text-xs text-gray-600">经济崩溃导致后勤补给能力缺失，最终军事能力崩盘。</p>
+                            </div>
+                            <div class="p-3 bg-gray-50 rounded-lg border border-gray-100">
+                                <p class="text-sm font-medium text-gray-800">第一次世界大战时期的德意志第二帝国</p>
+                                <p class="text-xs text-gray-600">英国封锁导致经济崩溃，国内革命爆发，最终投降。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-800 mb-2">当前俄罗斯的传导路径：</h4>
+                        <div class="flex flex-col space-y-2">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-red-600 font-bold mr-3">1</div>
+                                <span class="text-sm text-gray-600">能源设施被持续打击，能源收入骤降</span>
+                            </div>
+                            <div class="ml-4 border-l-2 border-red-200 h-4"></div>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-red-600 font-bold mr-3">2</div>
+                                <span class="text-sm text-gray-600">财政赤字扩大，政府债务激增</span>
+                            </div>
+                            <div class="ml-4 border-l-2 border-red-200 h-4"></div>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-red-600 font-bold mr-3">3</div>
+                                <span class="text-sm text-gray-600">通货膨胀加剧，民生领域支出压缩</span>
+                            </div>
+                            <div class="ml-4 border-l-2 border-red-200 h-4"></div>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-red-600 font-bold mr-3">4</div>
+                                <span class="text-sm text-gray-600">前线后勤补给困难，军事装备无法补充</span>
+                            </div>
+                            <div class="ml-4 border-l-2 border-red-200 h-4"></div>
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-red-600 font-bold mr-3">5</div>
+                                <span class="text-sm text-gray-600">前线战斗力持续下降，防线崩溃</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 终局推演 -->
+            <div class="card md:col-span-4 p-6">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-purple"></div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">四、终局推演：2027年3月的军事收复与俄罗斯解体</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- 为什么是2027年 -->
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700 mb-3">4.1 为什么是2027年？军事时间轴的详细推演</h3>
+                        <p class="text-gray-600 mb-4">2027年3月这一关键时间节点，是基于双方的现有兵力对比、战场态势的演变逻辑、以及战争潜力的此消彼长，得出的系统性推演结论。</p>
+                        
+                        <h4 class="font-bold text-gray-800 mb-2">乌军反攻时间轴：</h4>
+                        <div class="space-y-3 mb-4">
+                            <div class="flex items-start">
+                                <div class="w-24 text-sm text-gray-500">2026年1月</div>
+                                <div class="flex-1">
+                                    <p class="text-sm font-medium text-gray-800">局部反击开始</p>
+                                    <p class="text-xs text-gray-600">在顿涅茨克、扎波罗热等方向逐步发起局部反击。</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-24 text-sm text-gray-500">2026年5月</div>
+                                <div class="flex-1">
+                                    <p class="text-sm font-medium text-gray-800">反攻节奏加快</p>
+                                    <p class="text-xs text-gray-600">乌军收复领土面积超过俄军同期占领面积。</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-24 text-sm text-gray-500">2026年下半年</div>
+                                <div class="flex-1">
+                                    <p class="text-sm font-medium text-gray-800">战略预备队集结</p>
+                                    <p class="text-xs text-gray-600">完成所有精锐力量的战略集结，准备决定性反攻。</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-24 text-sm text-gray-500">2027年3月</div>
+                                <div class="flex-1">
+                                    <p class="text-sm font-medium text-gray-800 font-bold">最终决胜阶段</p>
+                                    <p class="text-xs text-gray-600">俄军防线全面崩溃，乌军恢复1991年领土边界。</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 class="font-bold text-gray-800 mb-2">乌军核心反攻路径：</h4>
+                        <ul class="list-disc list-inside text-gray-600 space-y-1">
+                            <li><span class="font-medium">北线：</span>顿巴斯战场的钳形攻势</li>
+                            <li><span class="font-medium">南线：</span>亚速海的两栖登陆作战</li>
+                            <li><span class="font-medium">纵深：</span>对俄军后方的全链条封控打击</li>
+                        </ul>
+                    </div>
+
+                    <!-- 俄罗斯的解体逻辑 -->
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700 mb-3">4.2 俄罗斯的解体逻辑与2027年的分裂迹象</h3>
+                        <p class="text-gray-600 mb-4">军事上的全线溃败，将成为压垮俄罗斯联邦的最后一根稻草——原本被强力压制的国内政治、经济、民族矛盾，将在短时间内集中爆发，推动俄罗斯走向解体。</p>
+                        
+                        <h4 class="font-bold text-gray-800 mb-2">俄罗斯联邦的内在脆弱性：</h4>
+                        <ul class="list-disc list-inside text-gray-600 mb-4 space-y-1">
+                            <li>由超过80个联邦主体组成的多民族国家</li>
+                            <li>国家凝聚力依靠外部威胁和中央集权维持</li>
+                            <li>地方治理体系存在天然结构性缺陷</li>
+                            <li>少数民族地区对莫斯科的离心倾向长期存在</li>
+                        </ul>
+
+                        <h4 class="font-bold text-gray-800 mb-2">解体路径推演：</h4>
+                        <div class="space-y-3">
+                            <div class="p-3 bg-purple-50 rounded-lg border border-purple-100">
+                                <p class="text-sm font-medium text-purple-800">第一阶段：中央政权权威崩塌</p>
+                                <p class="text-xs text-purple-600">前线溃败消息传回，国内政治混乱，中央对地方控制削弱。</p>
+                            </div>
+                            <div class="p-3 bg-purple-50 rounded-lg border border-purple-100">
+                                <p class="text-sm font-medium text-purple-800">第二阶段：边缘地区率先独立</p>
+                                <p class="text-xs text-purple-600">北高加索地区（车臣、达吉斯坦等）非斯拉夫民族共和国宣布独立。</p>
+                            </div>
+                            <div class="p-3 bg-purple-50 rounded-lg border border-purple-100">
+                                <p class="text-sm font-medium text-purple-800">第三阶段：经济核心区脱离</p>
+                                <p class="text-xs text-purple-600">伏尔加河流域能源丰富地区（鞑靼斯坦、巴什科尔托斯坦等）宣布独立。</p>
+                            </div>
+                            <div class="p-3 bg-purple-50 rounded-lg border border-purple-100">
+                                <p class="text-sm font-medium text-purple-800">第四阶段：远东地区分离</p>
+                                <p class="text-xs text-purple-600">布里亚特、萨哈（雅库特）等远东地区宣布独立。</p>
+                            </div>
+                            <div class="p-3 bg-purple-50 rounded-lg border border-purple-100">
+                                <p class="text-sm font-medium text-purple-800">第五阶段：中央政府垮台</p>
+                                <p class="text-xs text-purple-600">莫斯科中央政府实际控制范围局限于核心地区，政权更迭，联邦解体。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 最终结论 -->
+            <div class="card md:col-span-4 p-8 flex flex-col justify-center items-center text-center bg-gray-50">
+                <div class="w-24 h-24 rounded-full bg-gray-200 flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-flag-checkered text-5xl text-gray-500"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">推演结论</h2>
+                <p class="text-lg text-gray-600 max-w-3xl">基于军事代差、经济崩溃与博弈论的多维度分析，俄乌战争将在2027年3月前后迎来终局。乌克兰将恢复1991年国际公认的全部领土边界，而俄罗斯联邦将因军事失败和经济崩溃，面临系统性的解体危机。</p>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    // 战争消耗比图表
+    const ctx = document.getElementById('exchangeRatioChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['FPV穿越机 vs T-90M主战坦克', '小型自杀式无人机 vs 大型弹药库'],
+            datasets: [{
+                label: '乌军投入成本 (美元)',
+                data: [500, 1000],
+                backgroundColor: 'rgba(59, 130, 246, 0.7)',
+                borderColor: 'rgba(59, 130, 246, 1)',
+                borderWidth: 1
+            }, {
+                label: '俄军损失价值 (美元)',
+                data: [5000000, 10000000],
+                backgroundColor: 'rgba(239, 68, 68, 0.7)',
+                borderColor: 'rgba(239, 68, 68, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    type: 'logarithmic',
+                    title: {
+                        display: true,
+                        text: '成本/价值 (对数尺度，美元)'
+                    }
+                }
+            },
+            plugins: {
+                title: {
+                    display: true,
+                    text: '俄乌战争消耗比示意图',
+                    font: {
+                        size: 16
+                    }
+                },
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }
+    });
+</script>
+</html>
