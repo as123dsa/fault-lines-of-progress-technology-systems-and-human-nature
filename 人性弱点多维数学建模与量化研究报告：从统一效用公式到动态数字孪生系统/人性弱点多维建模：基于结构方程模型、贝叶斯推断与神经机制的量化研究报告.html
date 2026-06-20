@@ -1,0 +1,601 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人性弱点多维建模研究报告</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #FFFFFF;
+        }
+        .card {
+            background-color: white;
+            border: 1px solid #E5E7EB;
+            border-radius: 1.25rem; /* 20px */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            overflow: hidden;
+            position: relative;
+        }
+        .card:hover {
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+        .highlight-gradient-blue {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0), rgba(59, 130, 246, 0.05));
+        }
+        .highlight-gradient-purple {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0), rgba(139, 92, 246, 0.05));
+        }
+        .highlight-gradient-green {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0), rgba(34, 197, 94, 0.05));
+        }
+        .highlight-gradient-orange {
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0), rgba(249, 115, 22, 0.05));
+        }
+        .highlight-gradient-red {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0), rgba(239, 68, 68, 0.05));
+        }
+        .math-block {
+            font-family: 'KaTeX_Main', 'Times New Roman', serif;
+            background-color: #f9fafb;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <div class="max-w-7xl mx-auto p-4 md:p-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
+            
+            <!-- 主标题卡片 -->
+            <div class="card md:col-span-4 p-8 flex flex-col justify-center items-center text-center">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-blue"></div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-4 z-10">人性弱点多维建模</h1>
+                <p class="text-xl md:text-2xl text-gray-600 max-w-4xl z-10">基于结构方程模型、贝叶斯推断与神经机制的量化研究报告</p>
+            </div>
+
+            <!-- 摘要卡片 -->
+            <div class="card md:col-span-4 p-8">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-purple"></div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 z-10 relative"><i class="fa-solid fa-book-open text-purple-500"></i>摘要</h2>
+                <p class="text-gray-700 leading-relaxed z-10 relative">
+                    人性弱点（如拖延、从众、过度避险、非理性决策）是生物-心理-社会多维度因素交互作用的复杂行为表征。本文针对结构方程模型（SEM）、贝叶斯推断、延迟折扣率、损失厌恶指数、前额叶-边缘系统神经环路这五大核心工具与研究对象，系统梳理数学原理、推导计算步骤，结合典型行为实例，搭建从神经数据、心理评估到行为现象的全链路量化分析框架。
+                </p>
+            </div>
+
+            <!-- 核心方法卡片 -->
+            <div class="card md:col-span-2 p-8 flex flex-col justify-between">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-green"></div>
+                <div class="z-10 relative">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-gears text-green-500"></i>核心研究方法</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check-circle text-green-500 mt-1"></i><span><strong>结构方程模型 (SEM)</strong><br>处理潜变量与观测指标，分解直接与间接效应</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check-circle text-green-500 mt-1"></i><span><strong>贝叶斯推断</strong><br>结合先验信息，处理小样本与复杂模型</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check-circle text-green-500 mt-1"></i><span><strong>行为经济学量化指标</strong><br>延迟折扣率(k)与损失厌恶系数(λ)</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check-circle text-green-500 mt-1"></i><span><strong>神经影像学建模</strong><br>前额叶-边缘系统功能连接分析</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 生物-心理-社会模型卡片 -->
+            <div class="card md:col-span-2 p-8 flex flex-col justify-center items-center">
+                 <div class="absolute top-0 left-0 w-full h-full highlight-gradient-orange"></div>
+                 <h3 class="text-xl font-bold text-gray-800 mb-6 text-center z-10 relative">生物-心理-社会模型</h3>
+                 <div class="w-full h-64 flex items-center justify-center z-10 relative">
+                    <canvas id="bioPsychoSocialChart"></canvas>
+                 </div>
+            </div>
+
+            <!-- SEM 框架卡片 -->
+            <div class="card md:col-span-4 p-8">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-blue"></div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2 z-10 relative"><i class="fa-solid fa-sitemap text-blue-500"></i>结构方程模型（SEM）框架</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 z-10 relative">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-700 mb-3">路径系数的定义与计算</h3>
+                        <p class="text-gray-600 mb-4">路径系数是标准化后的回归系数（β值），刻画了两个潜变量之间的因果强度。</p>
+                        <div class="math-block">
+                            <p class="text-center">结构模型基本方程</p>
+                            <p class="text-center text-lg">η = Bη + Γξ + ζ</p>
+                        </div>
+                        <ul class="text-sm text-gray-600 space-y-1 mt-2">
+                            <li><strong>η:</strong> 内生潜变量 (如自我控制能力、拖延行为)</li>
+                            <li><strong>ξ:</strong> 外源潜变量 (如脑区功能连接、家庭环境)</li>
+                            <li><strong>B:</strong> 内生潜变量间的路径系数矩阵</li>
+                            <li><strong>Γ:</strong> 外源对内生潜变量的路径系数矩阵</li>
+                            <li><strong>ζ:</strong> 残差项向量</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-700 mb-3">中介效应的分解原理</h3>
+                        <p class="text-gray-600 mb-4">中介效应量化了自变量通过中介变量对因变量产生的间接影响。</p>
+                        <div class="math-block">
+                            <p class="text-center">总效应 = 直接效应 + 间接效应</p>
+                            <p class="text-center text-lg">c = c' + a × b</p>
+                        </div>
+                        <div class="flex items-center justify-center h-40 my-4">
+                            <div class="flex items-center gap-4 text-center">
+                                <div class="flex flex-col items-center">
+                                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold">X<br>自变量</div>
+                                    <p class="text-xs mt-1">如脑区连接</p>
+                                </div>
+                                <i class="fa-solid fa-arrow-right-long text-gray-400 text-2xl"></i>
+                                <div class="flex flex-col items-center">
+                                    <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold">M<br>中介变量</div>
+                                    <p class="text-xs mt-1">如自我控制</p>
+                                </div>
+                                <i class="fa-solid fa-arrow-right-long text-gray-400 text-2xl"></i>
+                                <div class="flex flex-col items-center">
+                                    <div class="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center text-red-600 font-bold">Y<br>因变量</div>
+                                    <p class="text-xs mt-1">如拖延行为</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 拖延行为中介效应案例 -->
+            <div class="card md:col-span-4 p-8">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-purple"></div>
+                <h3 class="text-xl font-bold text-gray-800 mb-6 z-10 relative">案例：前额叶-边缘系统功能连接在拖延行为中的中介机制</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 z-10 relative">
+                    <div class="md:col-span-2">
+                        <div class="h-80">
+                            <canvas id="mediationChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="flex flex-col justify-center">
+                        <h4 class="text-lg font-semibold text-gray-700 mb-4">核心发现</h4>
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-brain text-purple-500 mt-1"></i><span><strong>神经层:</strong> 功能连接变异性越高，自我控制能力越弱 (β=-0.194)</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-user-check text-purple-500 mt-1"></i><span><strong>心理层:</strong> 自我控制能力越弱，拖延行为越显著 (β=-0.658)</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-arrows-turn-to-dots text-purple-500 mt-1"></i><span><strong>中介效应:</strong> 完全中介，间接效应显著 (β=0.128)</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-purple-500 mt-1"></i><span><strong>模型拟合:</strong> 优秀 (RMSEA=0.05, CFI=0.995)</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 贝叶斯推断卡片 -->
+            <div class="card md:col-span-2 p-8">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-green"></div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2 z-10 relative"><i class="fa-solid fa-bullseye text-green-500"></i>贝叶斯推断原理</h2>
+                <div class="math-block mb-4 z-10 relative">
+                    <p class="text-center">贝叶斯定理</p>
+                    <p class="text-center text-lg">P(θ | Y) = P(Y | θ) P(θ) / P(Y)</p>
+                </div>
+                <ul class="space-y-3 text-gray-700 z-10 relative">
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-circle-nodes text-green-500 mt-1"></i><span><strong>先验分布 P(θ):</strong> 基于过往研究或理论的参数初始信念。</span></li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-magnifying-glass-chart text-green-500 mt-1"></i><span><strong>似然函数 P(Y|θ):</strong> 给定模型参数下，观测数据出现的概率。</span></li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-arrow-right-arrow-left text-green-500 mt-1"></i><span><strong>后验分布 P(θ|Y):</strong> 结合先验与数据后，对参数的最终信念。</span></li>
+                </ul>
+                <div class="mt-6 p-4 bg-green-50 rounded-lg z-10 relative">
+                    <h4 class="font-semibold text-green-800 mb-2">贝叶斯SEM的核心优势</h4>
+                    <p class="text-sm text-green-700">在小样本、复杂模型和需要整合先验知识的场景下，提供更稳健、更准确的参数估计。</p>
+                </div>
+            </div>
+
+            <!-- 贝叶斯建模步骤卡片 -->
+            <div class="card md:col-span-2 p-8">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-orange"></div>
+                <h3 class="text-xl font-bold text-gray-800 mb-6 z-10 relative">贝叶斯SEM建模步骤</h3>
+                <div class="space-y-4 z-10 relative">
+                    <div class="flex items-center gap-4 p-3 bg-orange-50 rounded-lg">
+                        <div class="w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-sm">1</div>
+                        <p class="text-gray-700"><strong>概念模型建构</strong> 与理论先验设定</p>
+                    </div>
+                    <div class="flex items-center gap-4 p-3 bg-orange-50 rounded-lg">
+                        <div class="w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-sm">2</div>
+                        <p class="text-gray-700"><strong>先验预测检验</strong> 验证模型设定</p>
+                    </div>
+                    <div class="flex items-center gap-4 p-3 bg-orange-50 rounded-lg">
+                        <div class="w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-sm">3</div>
+                        <p class="text-gray-700">数据拟合与 <strong>MCMC收敛诊断</strong></p>
+                    </div>
+                    <div class="flex items-center gap-4 p-3 bg-orange-50 rounded-lg">
+                        <div class="w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-sm">4</div>
+                        <p class="text-gray-700"><strong>后验预测检验</strong> 评估模型拟合</p>
+                    </div>
+                    <div class="flex items-center gap-4 p-3 bg-orange-50 rounded-lg">
+                        <div class="w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold text-sm">5</div>
+                        <p class="text-gray-700"><strong>参数估计</strong> 与行为机制推断</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 延迟折扣率卡片 -->
+            <div class="card md:col-span-2 p-8">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-red"></div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2 z-10 relative"><i class="fa-solid fa-hourglass-half text-red-500"></i>延迟折扣率 (k值)</h2>
+                <p class="text-gray-700 mb-4 z-10 relative">衡量个体对延迟奖励的主观价值降解速度，k值越大，冲动性越强。</p>
+                <div class="math-block mb-4 z-10 relative">
+                    <p class="text-center">双曲线贴现模型</p>
+                    <p class="text-center text-lg">V = A / (1 + k × D)</p>
+                </div>
+                <div class="h-48 z-10 relative">
+                    <canvas id="delayDiscountingChart"></canvas>
+                </div>
+                <div class="mt-4 text-sm text-gray-600 z-10 relative">
+                    <p><strong>高拖延者</strong> k值 ≈ 0.123 (是健康被试的40倍)</p>
+                    <p><strong>健康被试</strong> k值 ≈ 0.002~0.003</p>
+                </div>
+            </div>
+
+            <!-- 损失厌恶系数卡片 -->
+            <div class="card md:col-span-2 p-8">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-blue"></div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2 z-10 relative"><i class="fa-solid fa-scale-unbalanced-flip text-blue-500"></i>损失厌恶系数 (λ)</h2>
+                <p class="text-gray-700 mb-4 z-10 relative">衡量损失带来的负效用与同等收益带来的正效用的比值，λ>1表示损失厌恶。</p>
+                <div class="math-block mb-4 z-10 relative">
+                    <p class="text-center">前景理论价值函数</p>
+                    <p class="text-center text-base">v(x) = x^α, if x ≥ 0 (收益)</p>
+                    <p class="text-center text-base">v(x) = -λ (-x)^β, if x < 0 (损失)</p>
+                </div>
+                <div class="h-48 z-10 relative">
+                    <canvas id="lossAversionChart"></canvas>
+                </div>
+                <div class="mt-4 text-sm text-gray-600 z-10 relative">
+                    <p><strong>典型值:</strong> λ ≈ 2.25，即损失100元的痛苦 ≈ 获得225元的快乐</p>
+                </div>
+            </div>
+
+            <!-- 神经机制卡片 -->
+            <div class="card md:col-span-4 p-8">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-purple"></div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2 z-10 relative"><i class="fa-solid fa-brain text-purple-500"></i>神经机制：前额叶-边缘系统功能连接</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 z-10 relative">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-700 mb-3">神经结构与功能分工</h3>
+                        <div class="space-y-4">
+                            <div class="p-4 bg-purple-50 rounded-lg">
+                                <h4 class="font-semibold text-purple-800 mb-2">前额叶皮层 (PFC)</h4>
+                                <ul class="text-sm text-purple-700 space-y-1">
+                                    <li><strong>dlPFC:</strong> 冲动抑制、理性决策</li>
+                                    <li><strong>vmPFC:</strong> 价值计算、情绪整合</li>
+                                    <li><strong>ACC:</strong> 冲突监测、行为调整</li>
+                                </ul>
+                            </div>
+                            <div class="p-4 bg-purple-50 rounded-lg">
+                                <h4 class="font-semibold text-purple-800 mb-2">边缘系统</h4>
+                                <ul class="text-sm text-purple-700 space-y-1">
+                                    <li><strong>杏仁核:</strong> 负性情绪加工 (恐惧、焦虑)</li>
+                                    <li><strong>伏隔核:</strong> 即时奖励价值编码</li>
+                                    <li><strong>海马旁回:</strong> 记忆提取、负性思维</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-700 mb-3">功能连接的数学计算</h3>
+                        <p class="text-gray-600 mb-3">功能连接 (rs-FC) 是两个脑区BOLD信号波动的同步性。</p>
+                        <div class="math-block">
+                            <p class="text-center text-sm">Pearson相关系数</p>
+                            <p class="text-center text-base">R<sub>XY</sub> = Σ(X<sub>t</sub>-X̄)(Y<sub>t</sub>-Ȳ) / √[Σ(X<sub>t</sub>-X̄)² Σ(Y<sub>t</sub>-Ȳ)²]</p>
+                        </div>
+                        <p class="text-gray-600 mt-3 mb-2">Fisher Z变换 (标准化):</p>
+                        <div class="math-block">
+                            <p class="text-center text-base">Z<sub>XY</sub> = 0.5 × ln[(1 + R<sub>XY</sub>) / (1 - R<sub>XY</sub>)]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 双系统竞争模型卡片 -->
+            <div class="card md:col-span-4 p-8">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-green"></div>
+                <h3 class="text-xl font-bold text-gray-800 mb-6 z-10 relative">双系统竞争决策模型</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center z-10 relative">
+                    <div class="text-center p-4 bg-green-50 rounded-lg">
+                        <i class="fa-solid fa-snowflake text-4xl text-green-500 mb-2"></i>
+                        <h4 class="font-semibold text-green-800">冷系统 (dlPFC)</h4>
+                        <p class="text-sm text-green-700">理性控制<br>长期价值</p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fa-solid fa-plus text-4xl text-gray-400 mb-2"></i>
+                        <p class="text-gray-600">竞争与整合</p>
+                    </div>
+                    <div class="text-center p-4 bg-red-50 rounded-lg">
+                        <i class="fa-solid fa-fire text-4xl text-red-500 mb-2"></i>
+                        <h4 class="font-semibold text-red-800">热系统 (边缘系统)</h4>
+                        <p class="text-sm text-red-700">情绪驱动<br>短期奖励</p>
+                    </div>
+                </div>
+                <div class="mt-6 text-center z-10 relative">
+                    <div class="math-block inline-block">
+                        <p class="text-center">综合主观价值</p>
+                        <p class="text-center text-lg">V<sub>total</sub> = w × V<sub>cold</sub> + (1 - w) × V<sub>hot</sub></p>
+                    </div>
+                    <p class="text-gray-600 mt-4">其中，权重 w 由 dlPFC-边缘系统功能连接强度决定</p>
+                </div>
+            </div>
+
+            <!-- 综合案例分析标题卡片 -->
+            <div class="card md:col-span-4 p-8 text-center">
+                 <div class="absolute top-0 left-0 w-full h-full highlight-gradient-orange"></div>
+                 <h2 class="text-3xl font-bold text-gray-800 z-10 relative">综合案例分析</h2>
+                 <p class="text-lg text-gray-600 mt-2 z-10 relative">典型人性弱点的多维度建模</p>
+            </div>
+
+            <!-- 拖延症案例卡片 -->
+            <div class="card md:col-span-4 p-8">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-blue"></div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2 z-10 relative"><i class="fa-solid fa-hourglass-end text-blue-500"></i>案例1：拖延症的多维度建模</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 z-10 relative">
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-700 mb-3">概念模型设定</h4>
+                        <p class="text-gray-600 mb-4">三层链式中介模型：神经环路 → 心理特质 → 行为表现</p>
+                        <div class="space-y-3">
+                            <div class="p-3 bg-blue-50 rounded-lg">
+                                <p class="font-semibold text-blue-800">外源潜变量 (生物层)</p>
+                                <p class="text-sm text-blue-700">HPC-dlPFC 功能连接变异性</p>
+                            </div>
+                            <div class="p-3 bg-blue-50 rounded-lg">
+                                <p class="font-semibold text-blue-800">中介潜变量 (心理层)</p>
+                                <p class="text-sm text-blue-700">自我控制能力、任务厌恶度、延迟折扣率(k)</p>
+                            </div>
+                            <div class="p-3 bg-blue-50 rounded-lg">
+                                <p class="font-semibold text-blue-800">内生潜变量 (行为层)</p>
+                                <p class="text-sm text-blue-700">拖延行为倾向</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-700 mb-3">核心结果</h4>
+                        <div class="h-64">
+                            <canvas id="procrastinationModelChart"></canvas>
+                        </div>
+                        <div class="mt-4 text-sm text-gray-600">
+                            <p><strong>总效应:</strong> β=0.171 (p=0.01)</p>
+                            <p><strong>直接效应:</strong> β=0.044 (p=0.368, 不显著)</p>
+                            <p><strong>中介效应:</strong> 完全通过心理变量传导</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 从众心理案例卡片 -->
+            <div class="card md:col-span-4 p-8">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-purple"></div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2 z-10 relative"><i class="fa-solid fa-users text-purple-500"></i>案例2：从众心理的多维度建模</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 z-10 relative">
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-700 mb-3">概念模型设定</h4>
+                        <p class="text-gray-600 mb-4">有调节的多重中介模型</p>
+                        <div class="space-y-3">
+                            <div class="p-3 bg-purple-50 rounded-lg">
+                                <p class="font-semibold text-purple-800">外源潜变量 (生物层)</p>
+                                <p class="text-sm text-purple-700">vmPFC-杏仁核 功能连接强度</p>
+                            </div>
+                            <div class="p-3 bg-purple-50 rounded-lg">
+                                <p class="font-semibold text-purple-800">中介潜变量 (心理层)</p>
+                                <p class="text-sm text-purple-700">决断性、结构需求 (认知闭合需要)</p>
+                            </div>
+                            <div class="p-3 bg-purple-50 rounded-lg">
+                                <p class="font-semibold text-purple-800">调节变量 (社会层)</p>
+                                <p class="text-sm text-purple-700">群体压力强度</p>
+                            </div>
+                            <div class="p-3 bg-purple-50 rounded-lg">
+                                <p class="font-semibold text-purple-800">内生潜变量 (行为层)</p>
+                                <p class="text-sm text-purple-700">从众行为倾向</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-700 mb-3">神经机制</h4>
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-brain text-purple-500 mt-1"></i><span>高从众倾向者杏仁核激活更强，dlPFC激活更弱</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-link text-purple-500 mt-1"></i><span>vmPFC-杏仁核功能连接强度与自我控制能力正相关</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-arrows-left-right-to-line text-purple-500 mt-1"></i><span>连接强度减弱 → 情绪控制不足 → 认知闭合需要升高 → 从众行为</span></li>
+                        </ul>
+                        <div class="mt-6 p-4 bg-purple-100 rounded-lg">
+                            <p class="text-purple-800"><strong>核心发现:</strong> 前额叶-边缘系统功能连接异常通过认知闭合需要的中介传导，间接显著预测从众行为。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 结论卡片 -->
+            <div class="card md:col-span-4 p-8 text-center">
+                <div class="absolute top-0 left-0 w-full h-full highlight-gradient-green"></div>
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 z-10 relative">结论</h2>
+                <p class="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed z-10 relative">
+                    本研究通过整合结构方程模型、贝叶斯推断、行为经济学指标与神经影像学方法，成功构建了人性弱点的多维度量化分析框架。研究揭示了神经环路功能连接异常是拖延、从众等行为的共同生物基础，而心理特质（如自我控制、认知闭合需要）在其中扮演了关键的中介传导角色。这些发现为理解、预测乃至干预人性弱点，提供了坚实的数学模型与实证依据，具有重要的理论与实践价值。
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // 生物-心理-社会模型图
+        const bioPsychoSocialCtx = document.getElementById('bioPsychoSocialChart').getContext('2d');
+        new Chart(bioPsychoSocialCtx, {
+            type: 'bar',
+            data: {
+                labels: ['生物因素', '心理因素', '社会因素'],
+                datasets: [{
+                    label: '对人性弱点的影响权重',
+                    data: [0.35, 0.45, 0.20],
+                    backgroundColor: [
+                        'rgba(59, 130, 246, 0.6)',
+                        'rgba(139, 92, 246, 0.6)',
+                        'rgba(34, 197, 94, 0.6)'
+                    ],
+                    borderColor: [
+                        'rgba(59, 130, 246, 1)',
+                        'rgba(139, 92, 246, 1)',
+                        'rgba(34, 197, 94, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 0.6,
+                        title: { display: true, text: '影响权重' }
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    title: { display: true, text: '生物-心理-社会模型影响权重示意图', font: { size: 16 } }
+                }
+            }
+        });
+
+        // 拖延行为中介效应图
+        const mediationCtx = document.getElementById('mediationChart').getContext('2d');
+        new Chart(mediationCtx, {
+            type: 'bar',
+            data: {
+                labels: ['自我控制能力中介', '任务厌恶度中介', '延迟折扣率中介'],
+                datasets: [{
+                    label: '中介效应值',
+                    data: [0.128, 0.039, 0.004],
+                    backgroundColor: [
+                        'rgba(139, 92, 246, 0.6)',
+                        'rgba(59, 130, 246, 0.6)',
+                        'rgba(249, 115, 22, 0.6)'
+                    ],
+                    borderColor: [
+                        'rgba(139, 92, 246, 1)',
+                        'rgba(59, 130, 246, 1)',
+                        'rgba(249, 115, 22, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: '标准化中介效应值' }
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    title: { display: true, text: '拖延行为的多重中介效应分解', font: { size: 16 } }
+                }
+            }
+        });
+
+        // 延迟折扣率图
+        const delayDiscountingCtx = document.getElementById('delayDiscountingChart').getContext('2d');
+        new Chart(delayDiscountingCtx, {
+            type: 'line',
+            data: {
+                labels: ['0天', '7天', '30天', '90天', '180天', '365天'],
+                datasets: [
+                    {
+                        label: '健康被试 (k=0.0025)',
+                        data: [100, 98.2, 93.0, 78.9, 66.7, 50.0],
+                        borderColor: 'rgba(34, 197, 94, 1)',
+                        backgroundColor: 'rgba(34, 197, 94, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    },
+                    {
+                        label: '高拖延者 (k=0.123)',
+                        data: [100, 44.7, 14.0, 3.0, 0.6, 0.1],
+                        borderColor: 'rgba(239, 68, 68, 1)',
+                        backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }
+                ]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        title: { display: true, text: '主观价值 (元)' }
+                    },
+                    x: {
+                        title: { display: true, text: '延迟时间' }
+                    }
+                },
+                plugins: {
+                    title: { display: true, text: '延迟折扣曲线', font: { size: 16 } }
+                }
+            }
+        });
+
+        // 损失厌恶图
+        const lossAversionCtx = document.getElementById('lossAversionChart').getContext('2d');
+        new Chart(lossAversionCtx, {
+            type: 'line',
+            data: {
+                labels: ['-100', '-80', '-60', '-40', '-20', '0', '20', '40', '60', '80', '100'],
+                datasets: [{
+                    label: '价值函数 (λ=2.25, α=β=0.88)',
+                    data: [-281, -225, -170, -114, -57, 0, 17, 32, 45, 56, 67],
+                    borderColor: 'rgba(59, 130, 246, 1)',
+                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                    tension: 0.4,
+                    fill: false
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        title: { display: true, text: '主观价值 v(x)' }
+                    },
+                    x: {
+                        title: { display: true, text: '收益/损失 (元)' }
+                    }
+                },
+                plugins: {
+                    title: { display: true, text: '前景理论价值函数', font: { size: 16 } }
+                }
+            }
+        });
+
+        // 拖延症模型图
+        const procrastinationModelCtx = document.getElementById('procrastinationModelChart').getContext('2d');
+        new Chart(procrastinationModelCtx, {
+            type: 'radar',
+            data: {
+                labels: ['神经层→自我控制', '神经层→任务厌恶', '神经层→延迟折扣', '自我控制→拖延', '任务厌恶→拖延', '延迟折扣→拖延'],
+                datasets: [{
+                    label: '标准化路径系数',
+                    data: [-0.194, 0.217, 0.185, -0.658, 0.429, 0.364],
+                    backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                    borderColor: 'rgba(59, 130, 246, 1)',
+                    pointBackgroundColor: 'rgba(59, 130, 246, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(59, 130, 246, 1)'
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { display: true },
+                        suggestedMin: -0.8,
+                        suggestedMax: 0.8
+                    }
+                },
+                plugins: {
+                    title: { display: true, text: '拖延症模型标准化路径系数', font: { size: 16 } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
